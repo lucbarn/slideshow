@@ -4,6 +4,7 @@
     <meta charset="utf-8"></meta>
     <title>Perspective</title>
     <style>
+    
       #cards-container {
         display: block;
         position: relative;
@@ -129,34 +130,6 @@
         cursor: grabbing;
       }
 
-      .innerCircle {
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        opacity: 1;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        background-color: transparent;
-        border: 3px solid orange;
-        border-radius: 50%;
-        z-index: 2;
-      }
-
-      @keyframes fadingBorder {
-        to {
-          width: 80px;
-          height: 80px;
-          opacity: 0;
-        }
-      }
-
-      .circle:hover > .innerCircle {
-        animation-name: fadingBorder;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-out;
-      }
     </style>
   </head>
   <body>
@@ -225,20 +198,25 @@
 
       var bars = document.getElementsByClassName('bar');
       var circles = document.getElementsByClassName('circle');
-      var initialX = circles[0].getBoundingClientRect().x + circles[0].clientWidth / 2;
+      var initialClientX;
       var barWidth = bars[0].clientWidth;
+      var barX = bars[0].getBoundingClientRect().x;
       var circleWidth = circles[0].clientWidth;
       var circle;
       var circleX;
+      // delta is the distance between the center of a circle and the center
+      // of the corresponding bar
       var delta;
 
       function slide(event) {
-        circleX = event.clientX + delta - initialX;
+        circleX = event.clientX - initialClientX + delta;
         circle.style.left = 'calc(50% ' + ((circleX < 0) ? '- ':'+ ') + Math.min(Math.abs(circleX), barWidth / 2) + 'px)';
         var sign = ((circleX < 0) ? -1 : 1);
         if (circle.id === 'dx') {
+          // update perspective height
           x = x0 + 1.5 * sign * Math.min(Math.abs(circleX), barWidth / 2);
         } else {
+          // update perspective distance
           y = y0 + 2 * sign * Math.min(Math.abs(circleX), barWidth / 2);
         }
         updateCards();
@@ -249,7 +227,8 @@
         (function(i) {
           circles[i].addEventListener('mousedown', function(event) {
             circle = circles[i];
-            delta = (circle.getBoundingClientRect().x + circleWidth / 2) - event.clientX;
+            delta = (circle.getBoundingClientRect().x + circleWidth / 2) - (barX + barWidth / 2);
+            initialClientX = event.clientX;
             document.addEventListener('mousemove', slide);
           });
         }(i));
