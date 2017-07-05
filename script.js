@@ -10,7 +10,7 @@ var tile2 = document.getElementById('tile2');
 var tile3 = document.getElementById('tile3');
 var back = document.getElementById('back');
 
-var next = function() {
+function next() {
   if (window.outerWidth > 800) {
     front.style.animationName = 'forward_transition_front';
     tile1.style.animationName = 'forward_transition_tile1';
@@ -33,7 +33,7 @@ var next = function() {
   }, (window.outerWidth > 800) ? 500:50);
 }
 
-var previous = function() {
+function previous() {
   if (window.outerWidth > 800) {
     back.style.animationName = 'backward_transition_back';
     tile3.style.animationName = 'backward_transition_tile3';
