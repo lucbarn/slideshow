@@ -1,14 +1,14 @@
-var backgrounds = ['green',
+let backgrounds = ['green',
                    'blue',
                    'orange',
                    'red',
                    'purple']
 
-var front = document.getElementById('front');
-var tile1 = document.getElementById('tile1');
-var tile2 = document.getElementById('tile2');
-var tile3 = document.getElementById('tile3');
-var back = document.getElementById('back');
+const front = document.getElementById('front');
+const tile1 = document.getElementById('tile1');
+const tile2 = document.getElementById('tile2');
+const tile3 = document.getElementById('tile3');
+const back = document.getElementById('back');
 
 function next() {
   if (window.outerWidth > 800) {
@@ -56,15 +56,15 @@ function previous() {
   }, (window.outerWidth > 800) ? 500:50);
 }
 
-var modal = document.getElementById('modal');
-var modalImg = document.getElementById('modal-img');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
 function showModal() {
   document.body.style.overflowY = 'hidden';
   modal.style.display = 'block';
   modalImg.style.backgroundColor = backgrounds[1];
 }
 
-var hideModalButton = document.getElementById('modal-hide-button');
+const hideModalButton = document.getElementById('modal-hide-button');
 function hideModal() {
   document.body.style.overflowY = 'auto';
   modal.style.display = 'none';
