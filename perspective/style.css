@@ -7,7 +7,7 @@
 #front {
   position: absolute;
   bottom: 0px;
-  background-color: violet;
+  background-color: orange;
   z-index: 5;
 }
 
@@ -45,10 +45,9 @@
   height: 150px;
   left: 0px;
   bottom: 0px;
-  background-color: blue;
-  color: orange;
   padding: 10px 25px;
   box-sizing: border-box;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   z-index: 10;
 }
 
@@ -70,36 +69,13 @@
 
 .bar {
   position: absolute;
-  height: 15px;
+  height: 5px;
   width: 500px;
   left: 50px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: gray;
-  z-index: 1;
-}
-
-.barLeft {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  top: 50%;
-  left: 0%;
-  transform: translateX(-50%) translateY(-50%);
-  background-color: gray;
-  z-index: 1;
-}
-
-.barRight {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  top: 50%;
-  right: 0%;
-  transform: translateX(50%) translateY(-50%);
-  background-color: gray;
+  background-color: #105be9;
+  border-radius: 2px;
   z-index: 1;
 }
 
@@ -111,7 +87,7 @@
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 50%;
-  background-color: orange;
+  background-color: #aa47e5;
   z-index: 3;
 }
 
