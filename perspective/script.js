@@ -13,12 +13,17 @@ const cardsHeight = 480;
 const space = 100;
 
 function updateCards() {
+  let y1;
+  let y2;
+  let scaleCoefficient;
+  let height;
+  let translation;
   for (let i = 0; i < 5; i++) {
-    const y1 = (y * space * i) / (x + space * i);
-    const y2 = (cardsHeight * x + y * space * i) / (x + space * i);
-    const scaleCoefficient = cardsHeight / x;
-    const height = (y2-y1) * scaleCoefficient;
-    const translation = y1 * scaleCoefficient;
+    y1 = (y * space * i) / (x + space * i);
+    y2 = (cardsHeight * x + y * space * i) / (x + space * i);
+    scaleCoefficient = cardsHeight / x;
+    height = (y2-y1) * scaleCoefficient;
+    translation = y1 * scaleCoefficient;
     elements[i].style.height = height + 'px';
     elements[i].style.width = height * 4 / 3 + 'px';
     // cards horizontally centered
