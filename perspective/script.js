@@ -7,21 +7,26 @@ const cardsContainer = document.getElementById('cards-container');
 const elements = [front, card1, card2, card3, back];
 const x0 = 720;
 const y0 = 240;
-let x = x0;
-let y = y0;
+// px and py are the coordinates of the point of view
+let px = x0;
+let py = y0;
 const cardsHeight = 480;
-const space = 100;
+const spaceBetweenCards = 100;
 
 function updateCards() {
+  // y1 is the intersection betwwen the line that connects the base of the card with
+  // the point of view and the y axis
   let y1;
+  // y2 is the intersection between the line that connects the top of the card with
+  // the point of view and the y axis
   let y2;
   let scaleCoefficient;
   let height;
   let translation;
   for (let i = 0; i < 5; i++) {
-    y1 = (y * space * i) / (x + space * i);
-    y2 = (cardsHeight * x + y * space * i) / (x + space * i);
-    scaleCoefficient = cardsHeight / x;
+    y1 = (py * spaceBetweenCards * i) / (px + spaceBetweenCards * i);
+    y2 = (cardsHeight * x + y * spaceBetweenCards * i) / (x + spaceBetweenCards * i);
+    scaleCoefficient = cardsHeight / px;
     height = (y2-y1) * scaleCoefficient;
     translation = y1 * scaleCoefficient;
     elements[i].style.height = height + 'px';
@@ -55,10 +60,10 @@ function slide(event) {
   sign = ((circleX < 0) ? -1 : 1);
   if (circle.id === 'dx') {
     // update perspective height
-    x = x0 + 1.5 * sign * Math.min(Math.abs(circleX), barWidth / 2);
+    px = x0 + 1.5 * sign * Math.min(Math.abs(circleX), barWidth / 2);
   } else {
     // update perspective distance
-    y = y0 + 2 * sign * Math.min(Math.abs(circleX), barWidth / 2);
+    py = y0 + 2 * sign * Math.min(Math.abs(circleX), barWidth / 2);
   }
   updateCards();
 }
