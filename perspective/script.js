@@ -25,7 +25,7 @@ function updateCards() {
   let translation;
   for (let i = 0; i < 5; i++) {
     y1 = (py * spaceBetweenCards * i) / (px + spaceBetweenCards * i);
-    y2 = (cardsHeight * x + y * spaceBetweenCards * i) / (x + spaceBetweenCards * i);
+    y2 = (cardsHeight * px + py * spaceBetweenCards * i) / (px + spaceBetweenCards * i);
     scaleCoefficient = cardsHeight / px;
     height = (y2-y1) * scaleCoefficient;
     translation = y1 * scaleCoefficient;
