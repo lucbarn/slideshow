@@ -7,6 +7,7 @@ const cardsContainer = document.getElementById('cards-container');
 const elements = [front, card1, card2, card3, back];
 const x0 = 720;
 const y0 = 240;
+const widthHeightRatio = 4 / 3;
 // px and py are the coordinates of the point of view
 let px = x0;
 let py = y0;
@@ -30,9 +31,9 @@ function updateCards() {
     height = (y2-y1) * scaleCoefficient;
     translation = y1 * scaleCoefficient;
     elements[i].style.height = height + 'px';
-    elements[i].style.width = height * 4 / 3 + 'px';
+    elements[i].style.width = height * widthHeightRatio + 'px';
     // cards horizontally centered
-    elements[i].style.left = (front.style.width.substring(0, front.style.width.length - 2) - height * 4 / 3) / 2 + 'px';
+    elements[i].style.left = (front.style.width.substring(0, front.style.width.length - 2) - height * widthHeightRatio) / 2 + 'px';
     elements[i].style.transform = 'translateY(' + -1 * translation + 'px)';
   }
   cardsContainer.style.width = front.style.width;
