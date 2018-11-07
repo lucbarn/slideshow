@@ -257,16 +257,32 @@
 
 #modal-hide-button {
   position: absolute;
+  width: 30px;
+  height: 30px;
   top: 30px;
   right: 30px;
-  color: white;
-  font-family: sans-serif;
-  font-size: 40px;
   opacity: 0;
 }
 
 #modal-hide-button:hover {
   cursor: pointer;
+}
+
+.hide-button-line {
+  position: absolute;
+  top: 50%;
+  width: 42.4264px;
+  height: 4px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+#hide-forward-line {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+#hide-backwards-line {
+  transform: translateY(-50%) rotate(45deg);
 }
 
 #modal-img {
