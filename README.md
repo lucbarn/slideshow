@@ -7,3 +7,4 @@ Developer tools of the browser can then be used to find the values of width, hei
 and translateY of each card that are used in `slideshow/style.css`.
 
 To see an implementation of this slideshow, visit http://www.natur.apartments/en/apartments
+Another example can be found at https://codepen.io/lucbarn/pen/YRwYVM
