@@ -15,7 +15,7 @@ const cardsHeight = 480;
 const spaceBetweenCards = 100;
 
 function updateCards() {
-  // y1 is the intersection betwwen the line that connects the base of the card with
+  // y1 is the intersection between the line that connects the base of the card with
   // the point of view and the y axis
   let y1;
   // y2 is the intersection between the line that connects the top of the card with
