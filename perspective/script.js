@@ -70,15 +70,12 @@ function slide(event) {
 }
 
 for (let i = 0; i < circles.length; i++) {
-  // closure necessary in order to keep the value of i
-  (function(i) {
-    circles[i].addEventListener('mousedown', function(event) {
-      circle = circles[i];
-      delta = (circle.getBoundingClientRect().x + circleWidth / 2) - (barX + barWidth / 2);
-      initialClientX = event.clientX;
-      document.addEventListener('mousemove', slide);
-    });
-  }(i));
+  circles[i].addEventListener('mousedown', function(event) {
+    circle = circles[i];
+    delta = (circle.getBoundingClientRect().x + circleWidth / 2) - (barX + barWidth / 2);
+    initialClientX = event.clientX;
+    document.addEventListener('mousemove', slide);
+  });
 }
 
 document.addEventListener('mouseup', function() {
