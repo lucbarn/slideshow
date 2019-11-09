@@ -4,37 +4,33 @@
   margin: 150px auto 0px auto;
 }
 
-#front {
+.card {
   position: absolute;
   bottom: 0px;
+  left: 50%;
+}
+
+#front {
   background-color: orange;
   z-index: 5;
 }
 
 #card1 {
-  position: absolute;
-  bottom: 0px;
   background-color: red;
   z-index: 4;
 }
 
 #card2 {
-  position: absolute;
-  bottom: 0px;
   background-color: green;
   z-index: 3;
 }
 
 #card3 {
-  position: absolute;
-  bottom: 0px;
   background-color: blue;
   z-index: 2;
 }
 
 #back {
-  position: absolute;
-  bottom: 0px;
   background-color: purple;
   z-index: 1;
 }

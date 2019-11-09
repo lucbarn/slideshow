@@ -44,9 +44,7 @@ function updateCards() {
     translation = y1 * scaleCoefficient;
     elements[i].style.height = height + 'px';
     elements[i].style.width = height * widthHeightRatio + 'px';
-    // cards horizontally centered
-    elements[i].style.left = (front.style.width.substring(0, front.style.width.length - 2) - height * widthHeightRatio) / 2 + 'px';
-    elements[i].style.transform = 'translateY(' + -1 * translation + 'px)';
+    elements[i].style.transform = 'translateY(' + -1 * translation + 'px) translateX(-50%)';
   }
   cardsContainer.style.width = front.style.width;
   cardsContainer.style.height = front.style.height;
