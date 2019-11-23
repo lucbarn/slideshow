@@ -37,66 +37,90 @@
 
 #controls-container {
   position: absolute;
-  width: 100%;
-  height: 150px;
-  left: 0px;
-  bottom: 0px;
-  padding: 10px 25px;
+  display: flex;
+  width: auto;
+  height: auto;
+  right: 20px;
+  bottom: 20px;
+  padding: 25px;
+  border-radius: 5px;
   box-sizing: border-box;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   z-index: 10;
 }
 
-#bars-container {
+#pov-container {
   position: relative;
-  width: 750px;
-  height: 50px;
+  width: 200px;
+  height: 150px;
+  padding: 5px;
+  border-radius: 5px;
 }
 
-.bar-container {
-  position: relative;
+#pov-area {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  margin: 10px;
-}
-
-.bar-container > span {
-  position: absolute;
-  left: 0%;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-}
-
-.bar {
-  position: absolute;
-  height: 5px;
-  width: 500px;
-  left: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #105be9;
-  border-radius: 2px;
+  background-color: rgba(0,0,100,0);
+  transition: background-color 0.5s;
+  /* same value as pov-container's */
+  border-radius: 5px;
   z-index: 1;
 }
 
-.circle {
+#pov {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 50%;
   top: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background-color: #aa47e5;
-  z-index: 3;
+  background-color: blue;
+  z-index: 2;
 }
 
-.circle:hover {
-  cursor: grab;
+#pov:hover {
+  cursor: pointer;
 }
 
-.circle:active {
+#pov:active {
   cursor: grabbing;
+}
+
+#pov:hover ~ #pov-area {
+  background-color: rgba(0,0,100,0.1);
+}
+
+#cards-profile-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.card-profile {
+    width: 2px;
+    height: 96px;
+    margin: auto 0 auto 20px;
+}
+
+.front-profile {
+  background-color: orange;
+}
+
+.card1-profile {
+  background-color: red;
+}
+
+.card2-profile {
+  background-color: green;
+}
+
+.card3-profile {
+  background-color: blue;
+}
+
+.back-profile {
+  background-color: purple;
 }

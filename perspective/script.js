@@ -8,14 +8,14 @@ const elements = [front, card1, card2, card3, back];
 const x0 = 720;
 const y0 = 240;
 const widthHeightRatio = 4 / 3;
-// px and py are the coordinates of the point of view on the cartesian plane
-let px = x0;
-let py = y0;
-let windowHeight = window.innerHeight;
 // the theoretical values of the height of each card and the space between the
 // the cards; the first card is placed on the y-axis, the others to its left
 const cardsHeight = 480;
 const spaceBetweenCards = 100;
+// px and py are the coordinates of the point of view on the cartesian plane
+let px = x0;
+let py = y0;
+let windowHeight = window.innerHeight;
 
 function updateCards() {
   // y1 is the intersection between the line that connects the base of the card with
@@ -52,8 +52,8 @@ function updateCards() {
 
 updateCards();
 
-const bars = document.getElementsByClassName('bar');
-const circles = document.getElementsByClassName('circle');
+/*
+
 let initialClientX;
 const barWidth = bars[0].clientWidth;
 const barX = bars[0].getBoundingClientRect().x;
@@ -91,3 +91,5 @@ for (let i = 0; i < circles.length; i++) {
 document.addEventListener('mouseup', function() {
   document.removeEventListener('mousemove', slide);
 });
+
+*/
