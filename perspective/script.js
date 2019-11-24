@@ -52,44 +52,32 @@ function updateCards() {
 
 updateCards();
 
-/*
+const pov = document.getElementById('pov');
+const povArea = document.getElementById('pov-area');
+let cornerX = povArea.getBoundingClientRect().x;
+let cornerY = povArea.getBoundingClientRect().y;
+const xLimit = 200;
+const yLimit = 150;
 
-let initialClientX;
-const barWidth = bars[0].clientWidth;
-const barX = bars[0].getBoundingClientRect().x;
-const circleWidth = circles[0].clientWidth;
-let circle;
-let circleX;
-// delta is the distance between the center of a circle and the center
-// of the corresponding bar
-let delta;
-let sign;
-
-function slide(event) {
-  circleX = event.clientX - initialClientX + delta;
-  circle.style.left = 'calc(50% ' + ((circleX < 0) ? '- ':'+ ') + Math.min(Math.abs(circleX), barWidth / 2) + 'px)';
-  sign = ((circleX < 0) ? -1 : 1);
-  if (circle.id === 'dx') {
-    // update perspective height
-    px = x0 + 1.5 * sign * Math.min(Math.abs(circleX), barWidth / 2);
+function movePov(event) {
+  const x = event.clientX;
+  const y = event.clientY;
+  if (x > cornerX + xLimit / 2) {
+    pov.style.left = `${ Math.min(x - cornerX, xLimit) }px`;
   } else {
-    // update perspective distance
-    py = y0 + 2 * sign * Math.min(Math.abs(circleX), barWidth / 2);
+    pov.style.left = `${ Math.max(x - cornerX, 0) }px`;
   }
-  updateCards();
+  if (y > cornerY + yLimit / 2) {
+    pov.style.top = `${ Math.min(y - cornerY, yLimit) }px`;
+  } else {
+    pov.style.top = `${ Math.max(y - cornerY, 0) }px`;
+  }
 }
 
-for (let i = 0; i < circles.length; i++) {
-  circles[i].addEventListener('mousedown', function(event) {
-    circle = circles[i];
-    delta = (circle.getBoundingClientRect().x + circleWidth / 2) - (barX + barWidth / 2);
-    initialClientX = event.clientX;
-    document.addEventListener('mousemove', slide);
-  });
-}
-
-document.addEventListener('mouseup', function() {
-  document.removeEventListener('mousemove', slide);
+pov.addEventListener('mousedown', function() {
+  document.addEventListener('mousemove', movePov);
 });
 
-*/
+document.addEventListener('mouseup', function() {
+  document.removeEventListener('mousemove', movePov);
+});

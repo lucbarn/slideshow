@@ -65,7 +65,7 @@
   height: 100%;
   background-color: rgba(0,0,100,0);
   transition: background-color 0.5s;
-  /* same value as pov-container's */
+  /* border-radius -> same value as pov-container's */
   border-radius: 5px;
   z-index: 1;
 }
