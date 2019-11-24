@@ -52,8 +52,8 @@
 #pov-container {
   position: relative;
   width: 200px;
-  height: 150px;
-  padding: 5px;
+  height: 200px;
+  margin: 10px 10px 10px 80px;
   border-radius: 5px;
 }
 
@@ -90,19 +90,16 @@
   cursor: grabbing;
 }
 
-#pov:hover ~ #pov-area {
-  background-color: rgba(0,0,100,0.1);
-}
-
 #cards-profile-container {
   display: flex;
   flex-direction: row-reverse;
 }
 
 .card-profile {
-    width: 2px;
-    height: 96px;
-    margin: auto 0 auto 20px;
+    width: 3px;
+    /* height -> scale 1:4 */
+    height: 120px;
+    margin: auto 0 auto 25px;
 }
 
 .front-profile {

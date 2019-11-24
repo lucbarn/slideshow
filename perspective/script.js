@@ -57,27 +57,37 @@ const povArea = document.getElementById('pov-area');
 let cornerX = povArea.getBoundingClientRect().x;
 let cornerY = povArea.getBoundingClientRect().y;
 const xLimit = 200;
-const yLimit = 150;
+const yLimit = 200;
 
 function movePov(event) {
+  event.preventDefault();
   const x = event.clientX;
   const y = event.clientY;
+  let xPos;
+  let yPos;
   if (x > cornerX + xLimit / 2) {
-    pov.style.left = `${ Math.min(x - cornerX, xLimit) }px`;
+    xPos = Math.min(x - cornerX, xLimit);
   } else {
-    pov.style.left = `${ Math.max(x - cornerX, 0) }px`;
+    xPos = Math.max(x - cornerX, 0);
   }
   if (y > cornerY + yLimit / 2) {
-    pov.style.top = `${ Math.min(y - cornerY, yLimit) }px`;
+    yPos = Math.min(y - cornerY, yLimit);
   } else {
-    pov.style.top = `${ Math.max(y - cornerY, 0) }px`;
+    yPos = Math.max(y - cornerY, 0);
   }
+  pov.style.left = `${xPos}px`;
+  pov.style.top = `${yPos}px`;
+  px = (xPos + 80) * 4;
+  py = (yLimit - yPos - 40) * 4;
+  updateCards();
 }
 
 pov.addEventListener('mousedown', function() {
+  povArea.style.backgroundColor = 'rgba(0,0,100,0.1)';
   document.addEventListener('mousemove', movePov);
 });
 
 document.addEventListener('mouseup', function() {
+  povArea.style.backgroundColor = '';
   document.removeEventListener('mousemove', movePov);
 });
