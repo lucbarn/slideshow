@@ -1,0 +1,7 @@
+front_card_color|orange
+card1_color|red
+card2_color|green
+card3_color|blue
+back_card_color|purple
+
+pov_container_br_placeholder|5px
