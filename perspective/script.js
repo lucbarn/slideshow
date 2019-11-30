@@ -5,8 +5,8 @@ const card3 = document.getElementById('card3');
 const back = document.getElementById('back');
 const cardsContainer = document.getElementById('cards-container');
 const elements = [front, card1, card2, card3, back];
-const x0 = 720;
-const y0 = 240;
+const x0 = (80 + 200 / 2) * 4;
+const y0 = 480 / 2;
 const widthHeightRatio = 4 / 3;
 // the theoretical values of the height of each card and the space between the
 // the cards; the first card is placed on the y-axis, the others to its left

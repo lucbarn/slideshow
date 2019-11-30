@@ -5,13 +5,13 @@ const card3 = document.getElementById('card3');
 const back = document.getElementById('back');
 const cardsContainer = document.getElementById('cards-container');
 const elements = [front, card1, card2, card3, back];
-const x0 = 720;
-const y0 = 240;
+const x0 = (pov_container_cards_distance_int_placeholder + pov_container_side_int_placeholder / 2) * cards_scale_placeholder;
+const y0 = cards_height_int_placeholder / 2;
 const widthHeightRatio = 4 / 3;
 // the theoretical values of the height of each card and the space between the
 // the cards; the first card is placed on the y-axis, the others to its left
-const cardsHeight = 480;
-const spaceBetweenCards = 100;
+const cardsHeight = cards_height_int_placeholder;
+const spaceBetweenCards = space_between_cards_int_placeholder;
 // px and py are the coordinates of the point of view on the cartesian plane
 let px = x0;
 let py = y0;

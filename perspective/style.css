@@ -96,9 +96,8 @@
 
 .card-profile {
     width: 3px;
-    /* height -> scale 1:4 */
-    height: 120px;
-    margin: auto 0 auto 25px;
+    height: calc(480px / 4);
+    margin: auto 0 auto calc(100px / 4);
 }
 
 .front-profile {

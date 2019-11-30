@@ -53,7 +53,7 @@
   position: relative;
   width: pov_container_side_placeholder;
   height: pov_container_side_placeholder;
-  margin: 10px 10px 10px 80px;
+  margin: 10px 10px 10px pov_container_cards_distance_placeholder;
   border-radius: pov_container_border_radius_placeholder;
 }
 
@@ -96,9 +96,8 @@
 
 .card-profile {
     width: 3px;
-    /* height -> scale 1:4 */
-    height: 120px;
-    margin: auto 0 auto 25px;
+    height: calc(cards_height_placeholder / cards_scale_placeholder);
+    margin: auto 0 auto calc(space_between_cards_placeholder / cards_scale_placeholder);
 }
 
 .front-profile {
