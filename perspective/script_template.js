@@ -35,16 +35,18 @@ function updateCards() {
   // card and the theoretical height of each card
   let scaleCoefficient;
   let height;
-  let translation;
+  let width;
+  let verticalTranslation;
   for (let i = 0; i < 5; i++) {
     y1 = (py * spaceBetweenCards * i) / (px + spaceBetweenCards * i);
     y2 = (cardsHeight * px + py * spaceBetweenCards * i) / (px + spaceBetweenCards * i);
     scaleCoefficient = windowHeight / (2 * px);
     height = (y2-y1) * scaleCoefficient;
-    translation = y1 * scaleCoefficient;
-    elements[i].style.height = height + 'px';
-    elements[i].style.width = height * widthHeightRatio + 'px';
-    elements[i].style.transform = 'translateY(' + -1 * translation + 'px) translateX(-50%)';
+    width = height * widthHeightRatio;
+    verticalTranslation = y1 * scaleCoefficient;
+    elements[i].style.height = `${height}px`;
+    elements[i].style.width =  `${width}px`;
+    elements[i].style.transform = `translateY(-${verticalTranslation}px) translateX(-50%)`;
   }
   cardsContainer.style.width = front.style.width;
   cardsContainer.style.height = front.style.height;
