@@ -11,27 +11,27 @@
 }
 
 #front {
-  background-color: orange;
+  background-color: front_card_color_placeholder;
   z-index: 5;
 }
 
 #card1 {
-  background-color: red;
+  background-color: card1_color_placeholder;
   z-index: 4;
 }
 
 #card2 {
-  background-color: green;
+  background-color: card2_color_placeholder;
   z-index: 3;
 }
 
 #card3 {
-  background-color: blue;
+  background-color: card3_color_placeholder;
   z-index: 2;
 }
 
 #back {
-  background-color: purple;
+  background-color: back_card_color_placeholder;
   z-index: 1;
 }
 
@@ -51,10 +51,10 @@
 
 #pov-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: pov_container_side_placeholder;
+  height: pov_container_side_placeholder;
   margin: 10px 10px 10px 80px;
-  border-radius: 5px;
+  border-radius: pov_container_border_radius_placeholder;
 }
 
 #pov-area {
@@ -65,7 +65,7 @@
   height: 100%;
   background-color: rgba(0,0,100,0);
   transition: background-color 0.5s;
-  border-radius: 5px;
+  border-radius: pov_container_border_radius_placeholder;
   z-index: 1;
 }
 
@@ -102,21 +102,21 @@
 }
 
 .front-profile {
-  background-color: orange;
+  background-color: front_card_color_placeholder;
 }
 
 .card1-profile {
-  background-color: red;
+  background-color: card1_color_placeholder;
 }
 
 .card2-profile {
-  background-color: green;
+  background-color: card2_color_placeholder;
 }
 
 .card3-profile {
-  background-color: blue;
+  background-color: card3_color_placeholder;
 }
 
 .back-profile {
-  background-color: purple;
+  background-color: back_card_color_placeholder;
 }

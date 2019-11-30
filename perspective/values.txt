@@ -1,7 +1,9 @@
-front_card_color|orange
-card1_color|red
-card2_color|green
-card3_color|blue
-back_card_color|purple
+front_card_color_placeholder|orange
+card1_color_placeholder|red
+card2_color_placeholder|green
+card3_color_placeholder|blue
+back_card_color_placeholder|purple
 
-pov_container_br_placeholder|5px
+pov_container_side_placeholder|200px
+pov_container_side_int_placeholder|200
+pov_container_border_radius_placeholder|5px
