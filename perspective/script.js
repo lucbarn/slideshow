@@ -4,6 +4,8 @@ const card2 = document.getElementById('card2');
 const card3 = document.getElementById('card3');
 const back = document.getElementById('back');
 const cardsContainer = document.getElementById('cards-container');
+const modalBtn = document.getElementById("modal-btn");
+const modal = document.getElementById("modal");
 const elements = [front, card1, card2, card3, back];
 const x0 = (80 + 200 / 2) * 4;
 const y0 = 480 / 2;
@@ -83,6 +85,21 @@ function movePov(event) {
   py = (yLimit - yPos - 40) * 4;
   updateCards();
 }
+
+function showModal() {
+  modal.style.display = 'block';
+  setTimeout(function() {
+    modal.style.opacity = '1';
+  }, 1);
+}
+
+function hideModal() {
+  modal.style.display = 'none';
+  modal.style.opacity = '0';
+}
+
+modalBtn.addEventListener('click', showModal);
+modal.addEventListener('click', hideModal);
 
 pov.addEventListener('mousedown', function() {
   povArea.style.backgroundColor = 'rgba(0,0,100,0.1)';
