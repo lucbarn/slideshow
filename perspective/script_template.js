@@ -7,6 +7,7 @@ const cardsContainer = document.getElementById('cards-container');
 const modalBtn = document.getElementById("modal-btn");
 const modal = document.getElementById("modal");
 const elements = [front, card1, card2, card3, back];
+// (x0, y0) -> initial position of the point of view
 const x0 = (pov_container_cards_distance_int_placeholder + pov_container_side_int_placeholder / 2) * cards_scale_placeholder;
 const y0 = cards_height_int_placeholder / 2;
 const widthHeightRatio = 4 / 3;
@@ -81,8 +82,8 @@ function movePov(event) {
   }
   pov.style.left = `${xPos}px`;
   pov.style.top = `${yPos}px`;
-  px = (xPos + 80) * 4;
-  py = (yLimit - yPos - 40) * 4;
+  px = (xPos + pov_container_cards_distance_int_placeholder) * cards_scale_placeholder;
+  py = ((yLimit - yPos) - (yLimit - cards_height_int_placeholder / cards_scale_placeholder) / 2) * cards_scale_placeholder;
   updateCards();
 }
 
