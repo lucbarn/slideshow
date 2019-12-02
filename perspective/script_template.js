@@ -49,7 +49,7 @@ function updateCards() {
     verticalTranslation = y1 * scaleCoefficient;
     elements[i].style.height = `${height}px`;
     elements[i].style.width =  `${width}px`;
-    elements[i].style.transform = `translateY(-${verticalTranslation}px) translateX(-50%)`;
+    elements[i].style.transform = `translateY(${-1 * verticalTranslation}px) translateX(-50%)`;
   }
   cardsContainer.style.width = front.style.width;
   cardsContainer.style.height = front.style.height;
