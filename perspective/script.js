@@ -6,6 +6,7 @@ const back = document.getElementById('back');
 const cardsContainer = document.getElementById('cards-container');
 const modalBtn = document.getElementById("modal-btn");
 const modal = document.getElementById("modal");
+const modalTable = document.getElementById("modal-table");
 const elements = [front, card1, card2, card3, back];
 // (x0, y0) -> initial position of the point of view
 const x0 = (80 + 200 / 2) * 4;
@@ -87,7 +88,29 @@ function movePov(event) {
   updateCards();
 }
 
+function fillValues() {
+  const rows = modalTable.children;
+  const properties = ['width', 'height', 'transform'];
+  const cards = [front, card1, card2, card3, back];
+  let row;
+  let cells;
+  let cell;
+  for (let i = 1; i < 6; i++) {
+    row = rows[i];
+    cells = row.children;
+    for (let j = 1; j < 3; j++) {
+      cell = cells[j].firstElementChild;
+      cell.innerText = cards[i-1].style[properties[j-1]];
+    }
+    cell = cells[3].firstElementChild;
+    const transformRegex = /translateY\(([^\)]*)\)/;
+    const transformValue = cards[i-1].style['transform'];
+    cell.innerText = transformRegex.exec(transformValue)[1];
+  }
+}
+
 function showModal() {
+  fillValues();
   modal.style.display = 'block';
   setTimeout(function() {
     modal.style.opacity = '1';
