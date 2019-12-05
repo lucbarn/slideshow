@@ -83,6 +83,7 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 #modal-table {
@@ -101,6 +102,10 @@
 .col {
   width: 25%;
   display: flex;
+}
+
+.header, .first-col {
+  font-weight: bold;
 }
 
 .col-text {
