@@ -13,13 +13,13 @@ do
   fi
 done < $1
 
-count1=$(eval grep "_placeholder" style.css | wc -l)
+count1=$(eval grep "@[a-zA-Z0-9]+Placeholder" style.css | wc -l)
 if [[ $count1 -gt 0 ]]
 then
   echo "Warning: some placeholders in style_template.css could not be replaced."
 fi
 
-count2=$(eval grep "_placeholder" script.js | wc -l)
+count2=$(eval grep "@[a-zA-Z0-9]+Placeholder" script.js | wc -l)
 if [[ $count2 -gt 0 ]]
 then
   echo "Warning: some placeholders in script_template.js could not be replaced."

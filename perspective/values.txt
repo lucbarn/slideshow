@@ -1,18 +1,18 @@
-front_card_color_placeholder|orange
-card1_color_placeholder|red
-card2_color_placeholder|green
-card3_color_placeholder|blue
-back_card_color_placeholder|purple
+@frontCardColorPlaceholder|orange
+@card1ColorPlaceholder|red
+@card2ColorPlaceholder|green
+@card3ColorPlaceholder|blue
+@backCardColorPlaceholder|purple
 
-cards_scale_placeholder|4
-cards_height_placeholder|480px
-cards_height_int_placeholder|480
+@cardsScalePlaceholder|4
+@cardsHeightPlaceholder|480px
+@cardsHeightIntPlaceholder|480
 
-space_between_cards_placeholder|100px
-space_between_cards_int_placeholder|100
+@spaceBetweenCardsPlaceholder|100px
+@spaceBetweenCardsIntPlaceholder|100
 
-pov_container_side_placeholder|200px
-pov_container_side_int_placeholder|200
-pov_container_border_radius_placeholder|5px
-pov_container_cards_distance_placeholder|80px
-pov_container_cards_distance_int_placeholder|80
+@povContainerSidePlaceholder|200px
+@povContainerSideIntPlaceholder|200
+@povContainerBorderRadiusPlaceholder|5px
+@povContainerCardsDistancePlaceholder|80px
+@povContainerCardsDistanceIntPlaceholder|80

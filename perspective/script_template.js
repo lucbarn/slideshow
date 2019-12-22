@@ -9,13 +9,13 @@ const modal = document.getElementById("modal");
 const modalTable = document.getElementById("modal-table");
 const elements = [front, card1, card2, card3, back];
 // (x0, y0) -> initial position of the point of view
-const x0 = (pov_container_cards_distance_int_placeholder + pov_container_side_int_placeholder / 2) * cards_scale_placeholder;
-const y0 = cards_height_int_placeholder / 2;
+const x0 = (@povContainerCardsDistanceIntPlaceholder + @povContainerSideIntPlaceholder / 2) * @cardsScalePlaceholder;
+const y0 = @cardsHeightIntPlaceholder / 2;
 const widthHeightRatio = 4 / 3;
 // the theoretical values of the height of each card and the space between the
 // the cards; the first card is placed on the y-axis, the others to its left
-const cardsHeight = cards_height_int_placeholder;
-const spaceBetweenCards = space_between_cards_int_placeholder;
+const cardsHeight = @cardsHeightIntPlaceholder;
+const spaceBetweenCards = @spaceBetweenCardsIntPlaceholder;
 // px and py are the coordinates of the point of view on the cartesian plane
 let px = x0;
 let py = y0;
@@ -62,8 +62,8 @@ const pov = document.getElementById('pov');
 const povArea = document.getElementById('pov-area');
 let cornerX = povArea.getBoundingClientRect().x;
 let cornerY = povArea.getBoundingClientRect().y;
-const xLimit = pov_container_side_int_placeholder;
-const yLimit = pov_container_side_int_placeholder;
+const xLimit = @povContainerSideIntPlaceholder;
+const yLimit = @povContainerSideIntPlaceholder;
 
 function movePov(event) {
   event.preventDefault();
@@ -83,8 +83,8 @@ function movePov(event) {
   }
   pov.style.left = `${xPos}px`;
   pov.style.top = `${yPos}px`;
-  px = (xPos + pov_container_cards_distance_int_placeholder) * cards_scale_placeholder;
-  py = ((yLimit - yPos) - (yLimit - cards_height_int_placeholder / cards_scale_placeholder) / 2) * cards_scale_placeholder;
+  px = (xPos + @povContainerCardsDistanceIntPlaceholder) * @cardsScalePlaceholder;
+  py = ((yLimit - yPos) - (yLimit - @cardsHeightIntPlaceholder / @cardsScalePlaceholder) / 2) * @cardsScalePlaceholder;
   updateCards();
 }
 

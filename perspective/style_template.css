@@ -11,27 +11,27 @@
 }
 
 #front {
-  background-color: front_card_color_placeholder;
+  background-color: @frontCardColorPlaceholder;
   z-index: 5;
 }
 
 #card1 {
-  background-color: card1_color_placeholder;
+  background-color: @card1ColorPlaceholder;
   z-index: 4;
 }
 
 #card2 {
-  background-color: card2_color_placeholder;
+  background-color: @card2ColorPlaceholder;
   z-index: 3;
 }
 
 #card3 {
-  background-color: card3_color_placeholder;
+  background-color: @card3ColorPlaceholder;
   z-index: 2;
 }
 
 #back {
-  background-color: back_card_color_placeholder;
+  background-color: @backCardColorPlaceholder;
   z-index: 1;
 }
 
@@ -128,10 +128,10 @@
 
 #pov-container {
   position: relative;
-  width: pov_container_side_placeholder;
-  height: pov_container_side_placeholder;
-  margin: 10px 10px 10px pov_container_cards_distance_placeholder;
-  border-radius: pov_container_border_radius_placeholder;
+  width: @povContainerSidePlaceholder;
+  height: @povContainerSidePlaceholder;
+  margin: 10px 10px 10px @povContainerCardsDistancePlaceholder;
+  border-radius: @povContainerBorderRadiusPlaceholder;
 }
 
 #pov-area {
@@ -142,7 +142,7 @@
   height: 100%;
   background-color: rgba(0,0,100,0);
   transition: background-color 0.5s;
-  border-radius: pov_container_border_radius_placeholder;
+  border-radius: @povContainerBorderRadiusPlaceholder;
   z-index: 1;
 }
 
@@ -173,26 +173,26 @@
 
 .card-profile {
     width: 3px;
-    height: calc(cards_height_placeholder / cards_scale_placeholder);
-    margin: auto 0 auto calc(space_between_cards_placeholder / cards_scale_placeholder);
+    height: calc(@cardsHeightPlaceholder / @cardsScalePlaceholder);
+    margin: auto 0 auto calc(@spaceBetweenCardsPlaceholder / @cardsScalePlaceholder);
 }
 
 .front-profile {
-  background-color: front_card_color_placeholder;
+  background-color: @frontCardColorPlaceholder;
 }
 
 .card1-profile {
-  background-color: card1_color_placeholder;
+  background-color: @card1ColorPlaceholder;
 }
 
 .card2-profile {
-  background-color: card2_color_placeholder;
+  background-color: @card2ColorPlaceholder;
 }
 
 .card3-profile {
-  background-color: card3_color_placeholder;
+  background-color: @card3ColorPlaceholder;
 }
 
 .back-profile {
-  background-color: back_card_color_placeholder;
+  background-color: @backCardColorPlaceholder;
 }
