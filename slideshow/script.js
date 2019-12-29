@@ -1,7 +1,7 @@
 const front = document.getElementById('front');
-const tile1 = document.getElementById('tile1');
-const tile2 = document.getElementById('tile2');
-const tile3 = document.getElementById('tile3');
+const card1 = document.getElementById('card1');
+const card2 = document.getElementById('card2');
+const card3 = document.getElementById('card3');
 const back = document.getElementById('back');
 
 const modal = document.getElementById('modal');
@@ -22,9 +22,9 @@ function next() {
   // the slideshow animation gets triggered only if the screen is sufficiently large
   if (window.outerWidth > 800) {
     front.style.animationName = 'forward_transition_front';
-    tile1.style.animationName = 'forward_transition_tile1';
-    tile2.style.animationName = 'forward_transition_tile2';
-    tile3.style.animationName = 'forward_transition_tile3';
+    card1.style.animationName = 'forward_transition_card1';
+    card2.style.animationName = 'forward_transition_card2';
+    card3.style.animationName = 'forward_transition_card3';
     back.style.animationName = 'forward_transition_back';
   }
 
@@ -32,14 +32,14 @@ function next() {
 
   setTimeout(function() {
     front.style.backgroundColor = backgrounds[head];
-    tile1.style.backgroundColor = backgrounds[(head + 1) % bgLength];
-    tile2.style.backgroundColor = backgrounds[(head + 2) % bgLength];
-    tile3.style.backgroundColor = backgrounds[(head + 3) % bgLength];
+    card1.style.backgroundColor = backgrounds[(head + 1) % bgLength];
+    card2.style.backgroundColor = backgrounds[(head + 2) % bgLength];
+    card3.style.backgroundColor = backgrounds[(head + 3) % bgLength];
     back.style.backgroundColor = backgrounds[(head + 4) % bgLength];
     front.style.animationName = 'none';
-    tile1.style.animationName = 'none';
-    tile2.style.animationName = 'none';
-    tile3.style.animationName = 'none';
+    card1.style.animationName = 'none';
+    card2.style.animationName = 'none';
+    card3.style.animationName = 'none';
     back.style.animationName = 'none';
     animationInProgress = false;
   }, (window.outerWidth > 800) ? 500:50);
@@ -52,9 +52,9 @@ function previous() {
   animationInProgress = true;
   if (window.outerWidth > 800) {
     back.style.animationName = 'backward_transition_back';
-    tile3.style.animationName = 'backward_transition_tile3';
-    tile2.style.animationName = 'backward_transition_tile2';
-    tile1.style.animationName = 'backward_transition_tile1';
+    card3.style.animationName = 'backward_transition_card3';
+    card2.style.animationName = 'backward_transition_card2';
+    card1.style.animationName = 'backward_transition_card1';
     front.style.animationName = 'backward_transition_front';
   }
 
@@ -62,14 +62,14 @@ function previous() {
 
   setTimeout(function() {
     front.style.backgroundColor = backgrounds[head];
-    tile1.style.backgroundColor = backgrounds[(head + 1) % bgLength];
-    tile2.style.backgroundColor = backgrounds[(head + 2) % bgLength];
-    tile3.style.backgroundColor = backgrounds[(head + 3) % bgLength];
+    card1.style.backgroundColor = backgrounds[(head + 1) % bgLength];
+    card2.style.backgroundColor = backgrounds[(head + 2) % bgLength];
+    card3.style.backgroundColor = backgrounds[(head + 3) % bgLength];
     back.style.backgroundColor = backgrounds[(head + 4) % bgLength];
     back.style.animationName = 'none';
-    tile3.style.animationName = 'none';
-    tile2.style.animationName = 'none';
-    tile1.style.animationName = 'none';
+    card3.style.animationName = 'none';
+    card2.style.animationName = 'none';
+    card1.style.animationName = 'none';
     front.style.animationName = 'none';
     animationInProgress = false;
   }, (window.outerWidth > 800) ? 500:50);

@@ -1,90 +1,130 @@
+@frontWidth: 640px;
+@frontHeight: 480px;
+
+@card1Width: 529.655px;
+@card1Height: 397.241px;
+@card1TranslateY: -113.793px;
+
+@card2Width: 451.765px;
+@card2Height: 338.824px;
+@card2TranslateY: -194.118px;
+
+@card3Width: 393.846px;
+@card3Height: 295.385px;
+@card3TranslateY: -253.846px;
+
+@backWidth: 349.091px;
+@backHeight: 261.818px;
+@backTranslateY: -300px;
+
+
 @keyframes forward_transition_front {
+  from {}
   to {
-    width: 529.655px;
-    height: 397.241px;
-    transform: translate3d(-50%, -113.793px, 0px);
+    width: @card1Width;
+    height: @card1Height;
+    transform: translate3d(-50%, @card1TranslateY, 0px);
     opacity: 1;
   }
 }
+
 @keyframes forward_transition_card1 {
+  from {}
   to {
-    width: 451.765px;
-    height: 338.824px;
-    transform: translate3d(-50%, -194.118px, 0px);
+    width: @card2Width;
+    height: @card2Height;
+    transform: translate3d(-50%, @card2TranslateY, 0px);
   }
 }
+
 @keyframes forward_transition_card2 {
+  from {}
   to {
-    width: 393.846px;
-    height: 295.385px;
-    transform: translate3d(-50%, -253.846px, 0px);
+    width: @card3Width;
+    height: @card3Height;
+    transform: translate3d(-50%, @card3TranslateY, 0px);
   }
 }
+
 @keyframes forward_transition_card3 {
+  from {}
   to {
-    width: 349.091px;
-    height: 261.818px;
-    transform: translate3d(-50%, -300px, 0px);
+    width: @backWidth;
+    height: @backHeight;
+    transform: translate3d(-50%, @backTranslateY, 0px);
     opacity: 0;
   }
 }
+
 @keyframes backward_transition_card1 {
+  from {}
   to {
-    width: 640px;
-    height: 480px;
+    width: @frontWidth;
+    height: @frontHeight;
     transform: translate3d(-50%, 0px, 0px);
     opacity: 0;
   }
 }
+
 @keyframes backward_transition_card2 {
+  from {}
   to {
-    width: 529.655px;
-    height: 397.241px;
-    transform: translate3d(-50%, -113.793px, 0px);
+    width: @card1Width;
+    height: @card1Height;
+    transform: translate3d(-50%, @card1TranslateY, 0px);
   }
 }
+
 @keyframes backward_transition_card3 {
+  from {}
   to {
-    width: 451.765px;
-    height: 338.824px;
-    transform: translate3d(-50%, -194.118px, 0px);
+    width: @card2Width;
+    height: @card2Height;
+    transform: translate3d(-50%, @card2TranslateY, 0px);
   }
 }
+
 @keyframes backward_transition_back {
+  from {}
   to {
-    width: 393.846px;
-    height: 295.385px;
-    transform: translate3d(-50%, -253.846px, 0px);
+    width: @card3Width;
+    height: @card3Height;
+    transform: translate3d(-50%, @card3TranslateY, 0px);
     opacity: 1;
   }
 }
+
 .card {
   position: absolute;
   bottom: 0px;
   left: 50%;
 }
+
 #images-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
-  width: 640px;
-  height: 480px;
+  width: @frontWidth;
+  height: @frontHeight;
   max-width: 100%;
 }
+
 #card1-position {
-  width: 529.655px;
-  height: 397.241px;
+  width: @card1Width;
+  height: @card1Height;
   position: absolute;
-  transform: translate3d(-50%, -113.793px, 0px);
+  transform: translate3d(-50%, @card1TranslateY, 0px);
   z-index: 7;
 }
+
 #card1-position:hover {
   cursor: pointer;
 }
+
 #front {
-  width: 640px;
-  height: 480px;
+  width: @frontWidth;
+  height: @frontHeight;
   position: absolute;
   background-color: green;
   transform: translate3d(-50%, 0px, 0px);
@@ -94,51 +134,56 @@
   animation-fill-mode: forwards;
   opacity: 0;
 }
+
 #card1 {
-  width: 529.655px;
-  height: 397.241px;
+  width: @card1Width;
+  height: @card1Height;
   position: absolute;
   background-color: blue;
-  transform: translate3d(-50%, -113.793px, 0px);
+  transform: translate3d(-50%, @card1TranslateY, 0px);
   z-index: 5;
   animation-name: none;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
+
 #card2 {
-  width: 451.765px;
-  height: 338.824px;
+  width: @card2Width;
+  height: @card2Height;
   position: absolute;
   background-color: orange;
-  transform: translate3d(-50%, -194.118px, 0px);
+  transform: translate3d(-50%, @card2TranslateY, 0px);
   z-index: 4;
   animation-name: none;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
+
 #card3 {
-  width: 393.846px;
-  height: 295.385px;
+  width: @card3Width;
+  height: @card3Height;
   position: absolute;
   background-color: red;
-  transform: translate3d(-50%, -253.846px, 0px);
+  transform: translate3d(-50%, @card3TranslateY, 0px);
   z-index: 3;
   animation-name: none;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
+
 #back {
-  width: 349.091px;
-  height: 261.818px;
+  width: @backWidth;
+  height: @backHeight;
   position: absolute;
   background-color: purple;
-  transform: translate3d(-50%, -300px, 0px);
+  transform: translate3d(-50%, @backTranslateY, 0px);
   z-index: 2;
   animation-name: none;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
+
 #left-arrow {
   position: absolute;
   height: 30px;
@@ -150,8 +195,9 @@
   /* 72.41 is approximately equal to (397.241 / 2) + 113.793 - (480 / 2),
   which corresponds to the distance between the horizontal midpoint of
   the front tile and the horizontal midpoint of tile1 */
-  transform: translateY(calc(-50% - 72.41px)) rotate(45deg);
+  transform: translateY(calc(-50% - 72.41px)) rotate(45deg);;
 }
+
 #right-arrow {
   position: absolute;
   height: 30px;
@@ -160,43 +206,49 @@
   border-bottom: 3px solid #8c8c8c;
   right: -175px;
   top: 50%;
-  transform: translateY(calc(-50% - 72.41px)) rotate(225deg);
+  transform: translateY(calc(-50% - 72.41px)) rotate(225deg);;
 }
-#left-arrow:hover,
-#right-arrow:hover {
+
+#left-arrow:hover, #right-arrow:hover {
   cursor: pointer;
 }
+
 @media screen and (max-width: 1100px) {
   #left-arrow {
     left: -60px;
   }
+
   #right-arrow {
     right: -60px;
   }
 }
+
 @media screen and (max-width: 800px) {
   #images-wrapper {
     width: 82.76vw;
     height: 62.07vw;
   }
+
   #front,
   #card2,
   #card3,
   #back {
     display: none;
   }
-  #card1-position,
-  #card1 {
+
+  #card1-position, #card1 {
     width: 100%;
     height: 100%;
-    transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px,0px,0px);
   }
+
   #left-arrow {
     top: 110%;
     left: 50%;
     transform: translateX(-250%) rotate(45deg);
     z-index: 7;
   }
+
   #right-arrow {
     top: 110%;
     right: 50%;
@@ -204,14 +256,12 @@
     z-index: 7;
   }
 }
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from {opacity: 0}
+    to {opacity: 1}
 }
+
 #modal {
   display: none;
   position: fixed;
@@ -219,9 +269,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0,0,0,0.6);
   z-index: 20;
 }
+
 #modal-hide-button {
   position: absolute;
   width: 25px;
@@ -230,9 +281,11 @@
   right: 35px;
   opacity: 0;
 }
+
 #modal-hide-button:hover {
   cursor: pointer;
 }
+
 .hide-button-line {
   position: absolute;
   top: 50%;
@@ -244,12 +297,15 @@
   background-color: white;
   border-radius: 2px;
 }
+
 #hide-forward-line {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
+
 #hide-backwards-line {
   transform: translate(-50%, -50%) rotate(45deg);
 }
+
 #modal-img {
   position: absolute;
   top: 50%;
@@ -261,27 +317,32 @@
   max-height: 720px;
   opacity: 0;
 }
+
 @media screen and (max-width: 800px) and (orientation: portrait) {
   #modal-img {
     width: 100vw;
     height: 75vw;
   }
 }
+
 @media screen and (max-width: 800px) and (orientation: landscape) {
   #images-wrapper {
     width: 93.33vh;
     height: 70vh;
     transform: translateX(-50%) translateY(calc(-50% - 40px));
   }
+
   #modal-img {
     width: 106.66vh;
     height: 80vh;
   }
 }
+
 #modal {
   animation-name: fadeIn;
   animation-duration: 0.3s;
 }
+
 #modal-hide-button,
 #modal-img {
   animation-name: fadeIn;

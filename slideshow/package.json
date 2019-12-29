@@ -1,0 +1,21 @@
+{
+  "name": "slideshow",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucbarn/slideshow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucbarn/slideshow/issues"
+  },
+  "homepage": "https://github.com/lucbarn/slideshow#readme",
+  "dependencies": {
+    "less": "^3.10.3"
+  }
+}

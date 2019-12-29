@@ -5,6 +5,7 @@
 @backCardColorPlaceholder|purple
 
 @cardsScalePlaceholder|4
+
 @cardsHeightPlaceholder|480px
 @cardsHeightIntPlaceholder|480
 
@@ -13,6 +14,8 @@
 
 @povContainerSidePlaceholder|200px
 @povContainerSideIntPlaceholder|200
+
 @povContainerBorderRadiusPlaceholder|5px
+
 @povContainerCardsDistancePlaceholder|80px
 @povContainerCardsDistanceIntPlaceholder|80
