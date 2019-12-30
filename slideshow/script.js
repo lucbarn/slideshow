@@ -8,10 +8,16 @@ const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modal-img');
 const hideModalButton = document.getElementById('modal-hide-button');
 
-const backgrounds = ['green', 'blue', 'orange', 'red', 'purple'];
-const bgLength = backgrounds.length;
+const srcs = [
+  "https://source.unsplash.com/1fUu0dratoM/1200x900",
+  "https://source.unsplash.com/n20DUSVsUk8/1200x900",
+  "https://source.unsplash.com/ppnnu5-9bgI/1200x900",
+  "https://source.unsplash.com/vgxIfXwsUAE/1200x900",
+  "https://source.unsplash.com/KhhOAsE5M6Y/1200x900"
+];
+const srcsLength = srcs.length;
 let animationInProgress = false;
-// head is the index of the front card in the backgrounds array
+// head is the index of the front card in the srcs array
 let head = 0;
 
 function next() {
@@ -28,14 +34,14 @@ function next() {
     back.style.animationName = 'forward_transition_back';
   }
 
-  head = (bgLength + head - 1) % bgLength;
+  head = (srcsLength + head - 1) % srcsLength;
 
   setTimeout(function() {
-    front.style.backgroundColor = backgrounds[head];
-    card1.style.backgroundColor = backgrounds[(head + 1) % bgLength];
-    card2.style.backgroundColor = backgrounds[(head + 2) % bgLength];
-    card3.style.backgroundColor = backgrounds[(head + 3) % bgLength];
-    back.style.backgroundColor = backgrounds[(head + 4) % bgLength];
+    front.src = srcs[head];
+    card1.src = srcs[(head + 1) % srcsLength];
+    card2.src = srcs[(head + 2) % srcsLength];
+    card3.src = srcs[(head + 3) % srcsLength];
+    back.src = srcs[(head + 4) % srcsLength];
     front.style.animationName = 'none';
     card1.style.animationName = 'none';
     card2.style.animationName = 'none';
@@ -58,14 +64,14 @@ function previous() {
     front.style.animationName = 'backward_transition_front';
   }
 
-  head = (head + 1) % bgLength;
+  head = (head + 1) % srcsLength;
 
   setTimeout(function() {
-    front.style.backgroundColor = backgrounds[head];
-    card1.style.backgroundColor = backgrounds[(head + 1) % bgLength];
-    card2.style.backgroundColor = backgrounds[(head + 2) % bgLength];
-    card3.style.backgroundColor = backgrounds[(head + 3) % bgLength];
-    back.style.backgroundColor = backgrounds[(head + 4) % bgLength];
+    front.src = srcs[head];
+    card1.src = srcs[(head + 1) % srcsLength];
+    card2.src = srcs[(head + 2) % srcsLength];
+    card3.src = srcs[(head + 3) % srcsLength];
+    back.src = srcs[(head + 4) % srcsLength];
     back.style.animationName = 'none';
     card3.style.animationName = 'none';
     card2.style.animationName = 'none';
@@ -78,7 +84,7 @@ function previous() {
 function showModal() {
   document.body.style.overflowY = 'hidden';
   modal.style.display = 'block';
-  modalImg.style.backgroundColor = backgrounds[(head + 1) % bgLength];
+  modalImg.src = srcs[(head + 1) % srcsLength];
 }
 
 function hideModal() {

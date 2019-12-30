@@ -86,7 +86,6 @@
   width: 640px;
   height: 480px;
   position: absolute;
-  background-color: green;
   transform: translate3d(-50%, 0px, 0px);
   z-index: 6;
   animation-name: none;
@@ -98,7 +97,6 @@
   width: 529.655px;
   height: 397.241px;
   position: absolute;
-  background-color: blue;
   transform: translate3d(-50%, -113.793px, 0px);
   z-index: 5;
   animation-name: none;
@@ -109,7 +107,6 @@
   width: 451.765px;
   height: 338.824px;
   position: absolute;
-  background-color: orange;
   transform: translate3d(-50%, -194.118px, 0px);
   z-index: 4;
   animation-name: none;
@@ -120,7 +117,6 @@
   width: 393.846px;
   height: 295.385px;
   position: absolute;
-  background-color: red;
   transform: translate3d(-50%, -253.846px, 0px);
   z-index: 3;
   animation-name: none;
@@ -131,7 +127,6 @@
   width: 349.091px;
   height: 261.818px;
   position: absolute;
-  background-color: purple;
   transform: translate3d(-50%, -300px, 0px);
   z-index: 2;
   animation-name: none;
