@@ -146,6 +146,8 @@
   which corresponds to the distance between the horizontal midpoint of
   the front tile and the horizontal midpoint of tile1 */
   transform: translateY(calc(-50% - 72.41px)) rotate(45deg);
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 #right-arrow {
   position: absolute;
@@ -156,6 +158,8 @@
   right: -175px;
   top: 50%;
   transform: translateY(calc(-50% - 72.41px)) rotate(225deg);
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 #left-arrow:hover,
 #right-arrow:hover {
