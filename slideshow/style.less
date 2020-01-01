@@ -94,11 +94,6 @@
   }
 }
 
-.card {
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-}
 
 #images-wrapper {
   position: absolute;
@@ -110,10 +105,21 @@
   max-width: 100%;
 }
 
-#card1-position {
+.card {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+}
+
+.card-animation {
+  animation-name: none;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+#card1-position:extend(.card) {
   width: @card1Width;
   height: @card1Height;
-  position: absolute;
   transform: translate3d(-50%, @card1TranslateY, 0px);
   z-index: 7;
 }
@@ -122,60 +128,44 @@
   cursor: pointer;
 }
 
-#front {
+#front:extend(.card):extend(.card-animation) {
   width: @frontWidth;
   height: @frontHeight;
-  position: absolute;
   transform: translate3d(-50%, 0px, 0px);
   z-index: 6;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
   opacity: 0;
 }
 
-#card1 {
+#card1:extend(.card):extend(.card-animation) {
   width: @card1Width;
   height: @card1Height;
   position: absolute;
   transform: translate3d(-50%, @card1TranslateY, 0px);
   z-index: 5;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
 }
 
-#card2 {
+#card2:extend(.card):extend(.card-animation) {
   width: @card2Width;
   height: @card2Height;
   position: absolute;
   transform: translate3d(-50%, @card2TranslateY, 0px);
   z-index: 4;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
 }
 
-#card3 {
+#card3:extend(.card):extend(.card-animation) {
   width: @card3Width;
   height: @card3Height;
   position: absolute;
   transform: translate3d(-50%, @card3TranslateY, 0px);
   z-index: 3;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
 }
 
-#back {
+#back:extend(.card):extend(.card-animation) {
   width: @backWidth;
   height: @backHeight;
   position: absolute;
   transform: translate3d(-50%, @backTranslateY, 0px);
   z-index: 2;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
   opacity: 0;
 }
 

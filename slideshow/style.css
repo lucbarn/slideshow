@@ -58,11 +58,6 @@
     opacity: 1;
   }
 }
-.card {
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-}
 #images-wrapper {
   position: absolute;
   top: 50%;
@@ -72,10 +67,30 @@
   height: 480px;
   max-width: 100%;
 }
+.card,
+#card1-position,
+#front,
+#card1,
+#card2,
+#card3,
+#back {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+}
+.card-animation,
+#front,
+#card1,
+#card2,
+#card3,
+#back {
+  animation-name: none;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
 #card1-position {
   width: 529.655px;
   height: 397.241px;
-  position: absolute;
   transform: translate3d(-50%, -113.793px, 0px);
   z-index: 7;
 }
@@ -85,12 +100,8 @@
 #front {
   width: 640px;
   height: 480px;
-  position: absolute;
   transform: translate3d(-50%, 0px, 0px);
   z-index: 6;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
   opacity: 0;
 }
 #card1 {
@@ -99,9 +110,6 @@
   position: absolute;
   transform: translate3d(-50%, -113.793px, 0px);
   z-index: 5;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
 }
 #card2 {
   width: 451.765px;
@@ -109,9 +117,6 @@
   position: absolute;
   transform: translate3d(-50%, -194.118px, 0px);
   z-index: 4;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
 }
 #card3 {
   width: 393.846px;
@@ -119,9 +124,6 @@
   position: absolute;
   transform: translate3d(-50%, -253.846px, 0px);
   z-index: 3;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
 }
 #back {
   width: 349.091px;
@@ -129,9 +131,6 @@
   position: absolute;
   transform: translate3d(-50%, -300px, 0px);
   z-index: 2;
-  animation-name: none;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
   opacity: 0;
 }
 #left-arrow {
