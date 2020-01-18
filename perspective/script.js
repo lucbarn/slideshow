@@ -72,6 +72,7 @@ function movePov(event) {
   const y = event.clientY;
   let xPos;
   let yPos;
+  // keep pov inside its container
   if (x > cornerX + xLimit / 2) {
     xPos = Math.min(x - cornerX, xLimit);
   } else {
@@ -132,4 +133,9 @@ pov.addEventListener('mousedown', function() {
 document.addEventListener('mouseup', function() {
   povArea.style.backgroundColor = '';
   document.removeEventListener('mousemove', movePov);
+});
+
+window.addEventListener('resize', function() {
+  cornerX = povArea.getBoundingClientRect().x;
+  cornerY = povArea.getBoundingClientRect().y;
 });
