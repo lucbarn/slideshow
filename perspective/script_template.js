@@ -4,7 +4,8 @@ const card2 = document.getElementById('card2');
 const card3 = document.getElementById('card3');
 const back = document.getElementById('back');
 const cardsContainer = document.getElementById('cards-container');
-const modalBtn = document.getElementById("modal-btn");
+const showModalBtn = document.getElementById("show-modal-btn");
+const hideModalBtn = document.getElementById("hide-modal-btn");
 const modal = document.getElementById("modal");
 const modalTable = document.getElementById("modal-table");
 const elements = [front, card1, card2, card3, back];
@@ -111,10 +112,8 @@ function fillValues() {
 
 function showModal() {
   fillValues();
+  modal.style.opacity = '1';
   modal.style.display = 'block';
-  setTimeout(function() {
-    modal.style.opacity = '1';
-  }, 1);
 }
 
 function hideModal() {
@@ -122,8 +121,8 @@ function hideModal() {
   modal.style.opacity = '0';
 }
 
-modalBtn.addEventListener('click', showModal);
-modal.addEventListener('click', hideModal);
+showModalBtn.addEventListener('click', showModal);
+hideModalBtn.addEventListener('click', hideModal);
 
 pov.addEventListener('mousedown', function() {
   povArea.style.backgroundColor = 'rgba(0,0,100,0.1)';
