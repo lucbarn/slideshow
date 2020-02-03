@@ -25,7 +25,7 @@ function next() {
     return;
   }
   animationInProgress = true;
-  // the slideshow animation gets triggered only if the screen is sufficiently large
+  // the slideshow animation is triggered only if the screen is sufficiently large
   if (window.outerWidth > 800) {
     front.style.animationName = 'forward_transition_front';
     card1.style.animationName = 'forward_transition_card1';
