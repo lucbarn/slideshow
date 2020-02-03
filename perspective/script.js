@@ -4,10 +4,10 @@ const card2 = document.getElementById('card2');
 const card3 = document.getElementById('card3');
 const back = document.getElementById('back');
 const cardsContainer = document.getElementById('cards-container');
-const showModalBtn = document.getElementById("show-modal-btn");
-const hideModalBtn = document.getElementById("hide-modal-btn");
-const modal = document.getElementById("modal");
-const modalTable = document.getElementById("modal-table");
+const showModalBtn = document.getElementById('show-modal-btn');
+const hideModalBtn = document.getElementById('hide-modal-btn');
+const modal = document.getElementById('modal');
+const modalTable = document.getElementById('modal-table');
 const elements = [front, card1, card2, card3, back];
 // (x0, y0) -> initial position of the point of view
 const x0 = (80 + 200 / 2) * 4;
@@ -56,8 +56,6 @@ function updateCards() {
   cardsContainer.style.width = front.style.width;
   cardsContainer.style.height = front.style.height;
 }
-
-updateCards();
 
 const pov = document.getElementById('pov');
 const povArea = document.getElementById('pov-area');
