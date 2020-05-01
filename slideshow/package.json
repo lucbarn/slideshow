@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/lucbarn/slideshow#readme",
   "dependencies": {
-    "less": "^3.10.3"
+    "less": "^3.11.1"
   }
 }
