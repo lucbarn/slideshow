@@ -9,14 +9,20 @@ const hideModalBtn = document.getElementById('hide-modal-btn');
 const modal = document.getElementById('modal');
 const modalTable = document.getElementById('modal-table');
 const elements = [front, card1, card2, card3, back];
-// (x0, y0) -> initial position of the point of view
-const x0 = (80 + 200 / 2) * 4;
-const y0 = 480 / 2;
-const widthHeightRatio = 4 / 3;
+
+const povContainerCardsDistance = 80;
+const povContainerSide = 200;
+const cardsScale = 4;
 // the theoretical values of the height of each card and the space between the
 // the cards; the first card is placed on the y-axis, the others to its left
 const cardsHeight = 480;
 const spaceBetweenCards = 100;
+
+// (x0, y0) -> initial position of the point of view
+const x0 = (povContainerCardsDistance + povContainerSide / 2) * cardsScale;
+const y0 = cardsHeight / 2;
+// ratio between width and height of each card
+const widthHeightRatio = 4 / 3;
 // px and py are the coordinates of the point of view on the cartesian plane
 let px = x0;
 let py = y0;
@@ -61,8 +67,8 @@ const pov = document.getElementById('pov');
 const povArea = document.getElementById('pov-area');
 let cornerX = povArea.getBoundingClientRect().x;
 let cornerY = povArea.getBoundingClientRect().y;
-const xLimit = 200;
-const yLimit = 200;
+const xLimit = povContainerSide;
+const yLimit = povContainerSide;
 
 function movePov(event) {
   event.preventDefault();
@@ -83,8 +89,8 @@ function movePov(event) {
   }
   pov.style.left = `${xPos}px`;
   pov.style.top = `${yPos}px`;
-  px = (xPos + 80) * 4;
-  py = ((yLimit - yPos) - (yLimit - 480 / 4) / 2) * 4;
+  px = (xPos + povContainerCardsDistance) * cardsScale;
+  py = ((yLimit - yPos) - (yLimit - cardsHeight / cardsScale) / 2) * cardsScale;
   updateCards();
 }
 
