@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style.css"></link>
   </head>
   <body>
+
     <div id="images-wrapper">
       <div id="card1-position" onclick="showModal()"></div>
       <img id="front" src="https://source.unsplash.com/1fUu0dratoM/1200x900">
@@ -17,6 +18,7 @@
       <div id="left-arrow" onclick="previous()"></div>
       <div id="right-arrow" onclick="next()"></div>
     </div>
+
     <div id="modal">
       <div id="modal-hide-button" onclick="hideModal()">
         <span id="hide-forward-line" class="hide-button-line"></span>
@@ -24,6 +26,25 @@
       </div>
       <img id="modal-img">
     </div>
+
+    <div id="customize-btn">
+
+      <div id="customize-icon">
+        <div class="customize-icon-line">
+          <div class="customize-icon-circle first-icon-circle"></div>
+        </div>
+        <div class="customize-icon-line">
+          <div class="customize-icon-circle second-icon-circle"></div>
+        </div>
+        <div class="customize-icon-line">
+          <div class="customize-icon-circle third-icon-circle"></div>
+        </div>
+      </div>
+
+      <span>Customize</span>
+
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
