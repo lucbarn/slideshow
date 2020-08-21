@@ -101,7 +101,7 @@ function hideModal() {
 const controlsContainer = document.getElementById('controls-container');
 const pov = document.getElementById('pov');
 const povArea = document.getElementById('pov-area');
-const povContainerSide = 200;
+const povContainerSide = @povContainerSideIntPlaceholder;
 
 let cornerX = povArea.getBoundingClientRect().x;
 let cornerY = povArea.getBoundingClientRect().y;

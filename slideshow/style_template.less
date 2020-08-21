@@ -1,138 +1,174 @@
+@frontWidth: 640px;
+@frontHeight: 480px;
+
+@card1Width: 529.655px;
+@card1Height: 397.241px;
+@card1TranslateY: -113.793px;
+
+@card2Width: 451.765px;
+@card2Height: 338.824px;
+@card2TranslateY: -194.118px;
+
+@card3Width: 393.846px;
+@card3Height: 295.385px;
+@card3TranslateY: -253.846px;
+
+@backWidth: 349.091px;
+@backHeight: 261.818px;
+@backTranslateY: -300px;
+
+
 @keyframes forward_transition_front {
+  from {}
   to {
-    width: 529.655px;
-    height: 397.241px;
-    transform: translate3d(-50%, -113.793px, 0px);
+    width: @card1Width;
+    height: @card1Height;
+    transform: translate3d(-50%, @card1TranslateY, 0px);
     opacity: 1;
   }
 }
+
 @keyframes forward_transition_card1 {
+  from {}
   to {
-    width: 451.765px;
-    height: 338.824px;
-    transform: translate3d(-50%, -194.118px, 0px);
+    width: @card2Width;
+    height: @card2Height;
+    transform: translate3d(-50%, @card2TranslateY, 0px);
   }
 }
+
 @keyframes forward_transition_card2 {
+  from {}
   to {
-    width: 393.846px;
-    height: 295.385px;
-    transform: translate3d(-50%, -253.846px, 0px);
+    width: @card3Width;
+    height: @card3Height;
+    transform: translate3d(-50%, @card3TranslateY, 0px);
   }
 }
+
 @keyframes forward_transition_card3 {
+  from {}
   to {
-    width: 349.091px;
-    height: 261.818px;
-    transform: translate3d(-50%, -300px, 0px);
+    width: @backWidth;
+    height: @backHeight;
+    transform: translate3d(-50%, @backTranslateY, 0px);
     opacity: 0;
   }
 }
+
 @keyframes backward_transition_card1 {
+  from {}
   to {
-    width: 640px;
-    height: 480px;
+    width: @frontWidth;
+    height: @frontHeight;
     transform: translate3d(-50%, 0px, 0px);
     opacity: 0;
   }
 }
+
 @keyframes backward_transition_card2 {
+  from {}
   to {
-    width: 529.655px;
-    height: 397.241px;
-    transform: translate3d(-50%, -113.793px, 0px);
+    width: @card1Width;
+    height: @card1Height;
+    transform: translate3d(-50%, @card1TranslateY, 0px);
   }
 }
+
 @keyframes backward_transition_card3 {
+  from {}
   to {
-    width: 451.765px;
-    height: 338.824px;
-    transform: translate3d(-50%, -194.118px, 0px);
+    width: @card2Width;
+    height: @card2Height;
+    transform: translate3d(-50%, @card2TranslateY, 0px);
   }
 }
+
 @keyframes backward_transition_back {
+  from {}
   to {
-    width: 393.846px;
-    height: 295.385px;
-    transform: translate3d(-50%, -253.846px, 0px);
+    width: @card3Width;
+    height: @card3Height;
+    transform: translate3d(-50%, @card3TranslateY, 0px);
     opacity: 1;
   }
 }
+
+
 #images-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
-  width: 640px;
-  height: 480px;
+  width: @frontWidth;
+  height: @frontHeight;
   max-width: 100%;
 }
-.card,
-#card1-position,
-#front,
-#card1,
-#card2,
-#card3,
-#back {
+
+.card {
   position: absolute;
   bottom: 0px;
   left: 50%;
 }
-.card-animation,
-#front,
-#card1,
-#card2,
-#card3,
-#back {
+
+.card-animation {
   animation-name: none;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
-#card1-position {
-  width: 529.655px;
-  height: 397.241px;
-  transform: translate3d(-50%, -113.793px, 0px);
+
+#card1-position:extend(.card) {
+  width: @card1Width;
+  height: @card1Height;
+  transform: translate3d(-50%, @card1TranslateY, 0px);
   z-index: 7;
 }
+
 #card1-position:hover {
   cursor: pointer;
 }
-#front {
-  width: 640px;
-  height: 480px;
+
+#front:extend(.card):extend(.card-animation) {
+  width: @frontWidth;
+  height: @frontHeight;
   transform: translate3d(-50%, 0px, 0px);
   z-index: 6;
   opacity: 0;
 }
-#card1 {
-  width: 529.655px;
-  height: 397.241px;
+
+#card1:extend(.card):extend(.card-animation) {
+  width: @card1Width;
+  height: @card1Height;
   position: absolute;
-  transform: translate3d(-50%, -113.793px, 0px);
+  transform: translate3d(-50%, @card1TranslateY, 0px);
   z-index: 5;
 }
-#card2 {
-  width: 451.765px;
-  height: 338.824px;
+
+#card2:extend(.card):extend(.card-animation) {
+  width: @card2Width;
+  height: @card2Height;
   position: absolute;
-  transform: translate3d(-50%, -194.118px, 0px);
+  transform: translate3d(-50%, @card2TranslateY, 0px);
   z-index: 4;
 }
-#card3 {
-  width: 393.846px;
-  height: 295.385px;
+
+#card3:extend(.card):extend(.card-animation) {
+  width: @card3Width;
+  height: @card3Height;
   position: absolute;
-  transform: translate3d(-50%, -253.846px, 0px);
+  transform: translate3d(-50%, @card3TranslateY, 0px);
   z-index: 3;
 }
-#back {
-  width: 349.091px;
-  height: 261.818px;
+
+#back:extend(.card):extend(.card-animation) {
+  width: @backWidth;
+  height: @backHeight;
   position: absolute;
-  transform: translate3d(-50%, -300px, 0px);
+  transform: translate3d(-50%, @backTranslateY, 0px);
   z-index: 2;
   opacity: 0;
 }
+
 #left-arrow {
   position: absolute;
   height: 30px;
@@ -148,6 +184,7 @@
   -webkit-user-select: none;
   -moz-user-select: none;
 }
+
 #right-arrow {
   position: absolute;
   height: 30px;
@@ -160,41 +197,47 @@
   -webkit-user-select: none;
   -moz-user-select: none;
 }
-#left-arrow:hover,
-#right-arrow:hover {
+
+#left-arrow:hover, #right-arrow:hover {
   cursor: pointer;
 }
+
 @media screen and (max-width: 1100px) {
   #left-arrow {
     left: -60px;
   }
+
   #right-arrow {
     right: -60px;
   }
 }
+
 @media screen and (max-width: 800px) {
   #images-wrapper {
     width: 82.76vw;
     height: 62.07vw;
   }
+
   #front,
   #card2,
   #card3,
   #back {
     display: none;
   }
-  #card1-position,
-  #card1 {
+
+  #card1-position, #card1 {
     width: 100%;
     height: 100%;
-    transform: translate3d(-50%, 0px, 0px);
+    transform: translate3d(-50%,0px,0px);
   }
+
   #left-arrow {
     top: 110%;
     left: 50%;
     transform: translateX(-250%) rotate(45deg);
     z-index: 7;
   }
+
   #right-arrow {
     top: 110%;
     right: 50%;
@@ -202,14 +245,12 @@
     z-index: 7;
   }
 }
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from {opacity: 0}
+    to {opacity: 1}
 }
+
 #modal {
   display: none;
   position: fixed;
@@ -217,9 +258,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0,0,0,0.6);
   z-index: 20;
 }
+
 #modal-hide-button {
   position: absolute;
   width: 25px;
@@ -228,9 +270,11 @@
   right: 35px;
   opacity: 0;
 }
+
 #modal-hide-button:hover {
   cursor: pointer;
 }
+
 .hide-button-line {
   position: absolute;
   top: 50%;
@@ -242,12 +286,15 @@
   background-color: white;
   border-radius: 2px;
 }
+
 #hide-forward-line {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
+
 #hide-backwards-line {
   transform: translate(-50%, -50%) rotate(45deg);
 }
+
 #modal-img {
   position: absolute;
   top: 50%;
@@ -259,27 +306,32 @@
   max-height: 720px;
   opacity: 0;
 }
+
 @media screen and (max-width: 800px) and (orientation: portrait) {
   #modal-img {
     width: 100vw;
     height: 75vw;
   }
 }
+
 @media screen and (max-width: 800px) and (orientation: landscape) {
   #images-wrapper {
     width: 93.33vh;
     height: 70vh;
     transform: translateX(-50%) translateY(calc(-50% - 40px));
   }
+
   #modal-img {
     width: 106.66vh;
     height: 80vh;
   }
 }
+
 #modal {
   animation-name: fadeIn;
   animation-duration: 0.3s;
 }
+
 #modal-hide-button,
 #modal-img {
   animation-name: fadeIn;
@@ -287,6 +339,7 @@
   animation-fill-mode: forwards;
   animation-delay: 0.3s;
 }
+
 #customize-btn {
   position: fixed;
   right: 50px;
@@ -298,11 +351,13 @@
   border-radius: 500px;
   color: #434977;
   font-family: Arial, Helvetica, sans-serif;
-  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: -1px 1px 5px rgba(0,0,0,0.25);
 }
+
 #customize-btn:hover {
   cursor: pointer;
 }
+
 #customize-icon {
   width: 30px;
   height: 30px;
@@ -311,12 +366,14 @@
   justify-content: space-evenly;
   margin-right: 10px;
 }
+
 .customize-icon-line {
   position: relative;
   width: 100%;
   height: 1.5px;
   background-color: #434977;
 }
+
 .customize-icon-circle {
   width: 5px;
   height: 5px;
@@ -326,15 +383,19 @@
   border-radius: 50%;
   background-color: #434977;
 }
+
 .first-icon-circle {
   left: 70%;
 }
+
 .second-icon-circle {
   left: 20%;
 }
+
 .third-icon-circle {
   left: 40%;
 }
+
 #controls-container {
   position: absolute;
   display: flex;
@@ -345,35 +406,39 @@
   padding: 25px;
   border-radius: 5px;
   box-sizing: border-box;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   z-index: 10;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.5s, bottom 0.5s;
 }
+
 #controls-container.active {
   visibility: visible;
   opacity: 1;
   bottom: 140px;
 }
+
 #pov-container {
   position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 10px 10px 10px 80px;
-  border-radius: 5px;
+  width: @povContainerSidePlaceholder;
+  height: @povContainerSidePlaceholder;
+  margin: 10px 10px 10px @povContainerCardsDistancePlaceholder;
+  border-radius: @povContainerBorderRadiusPlaceholder;
 }
+
 #pov-area {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 100, 0);
+  background-color: rgba(0,0,100,0);
   transition: background-color 0.5s;
-  border-radius: 5px;
+  border-radius: @povContainerBorderRadiusPlaceholder;
   z-index: 1;
 }
+
 #pov {
   position: absolute;
   top: 50%;
@@ -383,36 +448,45 @@
   height: 12px;
   border-radius: 50%;
   background-color: blue;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 4px rgba(0,0,0,0.7);
   z-index: 2;
 }
+
 #pov:hover {
   cursor: pointer;
 }
+
 #pov:active {
   cursor: grabbing;
 }
+
 #cards-profile-container {
   display: flex;
   flex-direction: row-reverse;
 }
+
 .card-profile {
-  width: 3px;
-  height: calc(480px / 4);
-  margin: auto 0 auto calc(100px / 4);
+    width: 3px;
+    height: calc(@cardsHeightPlaceholder / @cardsScalePlaceholder);
+    margin: auto 0 auto calc(@spaceBetweenCardsPlaceholder / @cardsScalePlaceholder);
 }
+
 .front-profile {
-  background-color: orange;
+  background-color: @frontCardColorPlaceholder;
 }
+
 .card1-profile {
-  background-color: red;
+  background-color: @card1ColorPlaceholder;
 }
+
 .card2-profile {
-  background-color: green;
+  background-color: @card2ColorPlaceholder;
 }
+
 .card3-profile {
-  background-color: blue;
+  background-color: @card3ColorPlaceholder;
 }
+
 .back-profile {
-  background-color: purple;
+  background-color: @backCardColorPlaceholder;
 }

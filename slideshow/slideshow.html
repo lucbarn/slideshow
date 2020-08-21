@@ -27,8 +27,7 @@
       <img id="modal-img">
     </div>
 
-    <div id="customize-btn">
-
+    <div id="customize-btn" onclick="onCustomizeBtnClick()">
       <div id="customize-icon">
         <div class="customize-icon-line">
           <div class="customize-icon-circle first-icon-circle"></div>
@@ -40,9 +39,21 @@
           <div class="customize-icon-circle third-icon-circle"></div>
         </div>
       </div>
-
       <span>Customize</span>
+    </div>
 
+    <div id="controls-container">
+      <div id="cards-profile-container">
+        <div class="card-profile front-profile"></div>
+        <div class="card-profile card1-profile"></div>
+        <div class="card-profile card2-profile"></div>
+        <div class="card-profile card3-profile"></div>
+        <div class="card-profile back-profile"></div>
+      </div>
+      <div id="pov-container">
+        <div id="pov"></div>
+        <div id="pov-area"></div>
+      </div>
     </div>
 
     <script src="script.js"></script>

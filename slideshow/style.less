@@ -347,8 +347,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  padding: 5px 15px;
   border-radius: 500px;
+  color: #434977;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: -1px 1px 5px rgba(0,0,0,0.25);
+}
+
+#customize-btn:hover {
+  cursor: pointer;
 }
 
 #customize-icon {
@@ -357,19 +364,24 @@
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .customize-icon-line {
   position: relative;
   width: 100%;
-  height: 1px;
+  height: 1.5px;
+  background-color: #434977;
 }
 
 .customize-icon-circle {
+  width: 5px;
+  height: 5px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: #434977;
 }
 
 .first-icon-circle {
@@ -382,4 +394,99 @@
 
 .third-icon-circle {
   left: 40%;
+}
+
+#controls-container {
+  position: absolute;
+  display: flex;
+  width: auto;
+  height: auto;
+  right: 50px;
+  bottom: 120px;
+  padding: 25px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+#controls-container.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 140px;
+}
+
+#pov-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 10px 10px 10px 80px;
+  border-radius: 5px;
+}
+
+#pov-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,100,0);
+  transition: background-color 0.5s;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+#pov {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: blue;
+  box-shadow: 0 0 4px rgba(0,0,0,0.7);
+  z-index: 2;
+}
+
+#pov:hover {
+  cursor: pointer;
+}
+
+#pov:active {
+  cursor: grabbing;
+}
+
+#cards-profile-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.card-profile {
+    width: 3px;
+    height: calc(480px / 4);
+    margin: auto 0 auto calc(100px / 4);
+}
+
+.front-profile {
+  background-color: orange;
+}
+
+.card1-profile {
+  background-color: red;
+}
+
+.card2-profile {
+  background-color: green;
+}
+
+.card3-profile {
+  background-color: blue;
+}
+
+.back-profile {
+  background-color: purple;
 }
