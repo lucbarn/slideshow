@@ -132,15 +132,16 @@ function movePov(event) {
   updateCards();
 }
 
-let controlsActive = false;
+let controlsVisible = false;
 
-function onCustomizeBtnClick() {
-  if (controlsActive) {
-    controlsContainer.classList.remove('active');
+function onCustomizeBtnClick(event) {
+  if (!controlsVisible) {
+    controlsContainer.classList.add('visible');
+    controlsVisible = true;
   } else {
-    controlsContainer.classList.add('active');
+    controlsContainer.classList.remove('visible');
+    controlsVisible = false;
   }
-  controlsActive = !controlsActive;
 }
 
 pov.addEventListener('mousedown', function() {
@@ -148,9 +149,20 @@ pov.addEventListener('mousedown', function() {
   document.addEventListener('mousemove', movePov);
 });
 
-document.addEventListener('mouseup', function() {
+document.addEventListener('mouseup', function(event) {
   povArea.style.backgroundColor = '';
   document.removeEventListener('mousemove', movePov);
+
+  // when the controls container div is visible close it if
+  // an element outside of its area is clicked; if the element
+  // is customize button then the closing action is handled by
+  // onCustomizeBtnClick method
+  if (controlsVisible
+        && event.target.closest('div#controls-container') === null
+        && event.target.closest('div#customize-btn') === null) {
+    controlsContainer.classList.remove('visible');
+    controlsVisible = false;
+  }
 });
 
 window.addEventListener('resize', function() {
