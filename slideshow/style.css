@@ -383,7 +383,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: blue;
+  background-color: #00008f;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
   z-index: 2;
 }
@@ -401,19 +401,5 @@
   width: 3px;
   height: calc(480px / 4);
   margin: auto 0 auto calc(100px / 4);
-}
-.front-profile {
-  background-color: orange;
-}
-.card1-profile {
-  background-color: red;
-}
-.card2-profile {
-  background-color: green;
-}
-.card3-profile {
-  background-color: blue;
-}
-.back-profile {
-  background-color: purple;
+  background-color: #b2b8d3;
 }

@@ -103,17 +103,19 @@ const pov = document.getElementById('pov');
 const povArea = document.getElementById('pov-area');
 const povContainerSide = @povContainerSideIntPlaceholder;
 
-let cornerX = povArea.getBoundingClientRect().x;
-let cornerY = povArea.getBoundingClientRect().y;
+let cornerX;
+let cornerY;
 const xLimit = povContainerSide;
 const yLimit = povContainerSide;
 
 function movePov(event) {
+  // prevent elements highlighting while dragging the pov
   event.preventDefault();
   const x = event.clientX;
   const y = event.clientY;
   let xPos;
   let yPos;
+
   // keep pov inside its container
   if (x > cornerX + xLimit / 2) {
     xPos = Math.min(x - cornerX, xLimit);
@@ -125,11 +127,12 @@ function movePov(event) {
   } else {
     yPos = Math.max(y - cornerY, 0);
   }
+
   pov.style.left = `${xPos}px`;
   pov.style.top = `${yPos}px`;
-  px = (xPos + povContainerCardsDistance) * cardsScale;
-  py = ((yLimit - yPos) - (yLimit - cardsHeight / cardsScale) / 2) * cardsScale;
-  updateCards();
+  // px = (xPos + povContainerCardsDistance) * cardsScale;
+  // py = ((yLimit - yPos) - (yLimit - cardsHeight / cardsScale) / 2) * cardsScale;
+  // updateCards();
 }
 
 let controlsVisible = false;
@@ -145,7 +148,9 @@ function onCustomizeBtnClick(event) {
 }
 
 pov.addEventListener('mousedown', function() {
-  povArea.style.backgroundColor = 'rgba(0,0,100,0.1)';
+  povArea.style.backgroundColor = 'rgba(150,150,150,0.1)';
+  cornerX = povArea.getBoundingClientRect().x;
+  cornerY = povArea.getBoundingClientRect().y;
   document.addEventListener('mousemove', movePov);
 });
 
@@ -165,7 +170,7 @@ document.addEventListener('mouseup', function(event) {
   }
 });
 
-window.addEventListener('resize', function() {
-  cornerX = povArea.getBoundingClientRect().x;
-  cornerY = povArea.getBoundingClientRect().y;
-});
+// window.addEventListener('resize', function() {
+//   cornerX = povArea.getBoundingClientRect().x;
+//   cornerY = povArea.getBoundingClientRect().y;
+// });

@@ -1,9 +1,3 @@
-@frontCardColorPlaceholder|orange
-@card1ColorPlaceholder|red
-@card2ColorPlaceholder|green
-@card3ColorPlaceholder|blue
-@backCardColorPlaceholder|purple
-
 @cardsScalePlaceholder|4
 
 @cardsHeightPlaceholder|480px
