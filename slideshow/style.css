@@ -58,7 +58,7 @@
     opacity: 1;
   }
 }
-#images-wrapper {
+#cards-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -75,7 +75,7 @@
 #card3,
 #back {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 50%;
 }
 .card-animation,
@@ -91,7 +91,7 @@
 #card1-position {
   width: 529.655px;
   height: 397.241px;
-  transform: translate3d(-50%, -113.793px, 0px);
+  transform: translate3d(-50%, calc(-50% + -113.793px), 0px);
   z-index: 7;
 }
 #card1-position:hover {
@@ -100,7 +100,7 @@
 #front {
   width: 640px;
   height: 480px;
-  transform: translate3d(-50%, 0px, 0px);
+  transform: translate3d(-50%, -50%, 0px);
   z-index: 6;
   opacity: 0;
 }
@@ -108,28 +108,28 @@
   width: 529.655px;
   height: 397.241px;
   position: absolute;
-  transform: translate3d(-50%, -113.793px, 0px);
+  transform: translate3d(-50%, calc(-50% + -113.793px), 0px);
   z-index: 5;
 }
 #card2 {
   width: 451.765px;
   height: 338.824px;
   position: absolute;
-  transform: translate3d(-50%, -194.118px, 0px);
+  transform: translate3d(-50%, calc(-50% + -194.118px), 0px);
   z-index: 4;
 }
 #card3 {
   width: 393.846px;
   height: 295.385px;
   position: absolute;
-  transform: translate3d(-50%, -253.846px, 0px);
+  transform: translate3d(-50%, calc(-50% + -253.846px), 0px);
   z-index: 3;
 }
 #back {
   width: 349.091px;
   height: 261.818px;
   position: absolute;
-  transform: translate3d(-50%, -300px, 0px);
+  transform: translate3d(-50%, calc(-50% + -300px), 0px);
   z-index: 2;
   opacity: 0;
 }
@@ -144,7 +144,7 @@
   /* 72.41 is approximately equal to (397.241 / 2) + 113.793 - (480 / 2),
   which corresponds to the distance between the horizontal midpoint of
   the front tile and the horizontal midpoint of tile1 */
-  transform: translateY(calc(-50% - 72.41px)) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
   -webkit-user-select: none;
   -moz-user-select: none;
 }
@@ -156,7 +156,7 @@
   border-bottom: 3px solid #8c8c8c;
   right: -175px;
   top: 50%;
-  transform: translateY(calc(-50% - 72.41px)) rotate(225deg);
+  transform: translateY(-50%) rotate(225deg);
   -webkit-user-select: none;
   -moz-user-select: none;
 }
@@ -173,7 +173,7 @@
   }
 }
 @media screen and (max-width: 800px) {
-  #images-wrapper {
+  #cards-container {
     width: 82.76vw;
     height: 62.07vw;
   }
@@ -187,7 +187,7 @@
   #card1 {
     width: 100%;
     height: 100%;
-    transform: translate3d(-50%, 0px, 0px);
+    transform: translate3d(-50%, -50%, 0px);
   }
   #left-arrow {
     top: 110%;
@@ -266,7 +266,7 @@
   }
 }
 @media screen and (max-width: 800px) and (orientation: landscape) {
-  #images-wrapper {
+  #cards-container {
     width: 93.33vh;
     height: 70vh;
     transform: translateX(-50%) translateY(calc(-50% - 40px));
@@ -399,7 +399,7 @@
 }
 .card-profile {
   width: 3px;
-  height: calc(480px / 4);
+  height: calc(390px / 4);
   margin: auto 0 auto calc(100px / 4);
   background-color: #b2b8d3;
 }

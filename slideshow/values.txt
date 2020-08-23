@@ -1,15 +1,13 @@
-@cardsScalePlaceholder|4
+@controlsContainerScalePlaceholder|4
 
-@cardsHeightPlaceholder|480px
-@cardsHeightIntPlaceholder|480
+@cardsHeightPlaceholder|390px
+@cardsHeightIntPlaceholder|390
 
 @spaceBetweenCardsPlaceholder|100px
 @spaceBetweenCardsIntPlaceholder|100
 
 @povContainerSidePlaceholder|200px
 @povContainerSideIntPlaceholder|200
-
-@povContainerBorderRadiusPlaceholder|5px
 
 @povContainerCardsDistancePlaceholder|80px
 @povContainerCardsDistanceIntPlaceholder|80
