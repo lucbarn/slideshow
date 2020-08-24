@@ -96,7 +96,6 @@
   }
 }
 
-
 #cards-container {
   position: absolute;
   top: 50%;
@@ -111,6 +110,7 @@
   position: absolute;
   bottom: 0;
   left: 50%;
+  visibility: hidden;
 }
 
 .card-animation {
@@ -120,9 +120,9 @@
 }
 
 #card1-position:extend(.card) {
-  width: @card1Width;
-  height: @card1Height;
-  transform: translate3d(-50%, calc(-50% + @card1TranslateY), 0px);
+  // width: @card1Width;
+  // height: @card1Height;
+  // transform: translate3d(-50%, calc(-50% + @card1TranslateY), 0px);
   z-index: 7;
 }
 
@@ -131,42 +131,38 @@
 }
 
 #front:extend(.card):extend(.card-animation) {
-  width: @frontWidth;
-  height: @frontHeight;
-  transform: translate3d(-50%, -50%, 0px);
+  // width: @frontWidth;
+  // height: @frontHeight;
+  // transform: translate3d(-50%, -50%, 0px);
   z-index: 6;
   opacity: 0;
 }
 
 #card1:extend(.card):extend(.card-animation) {
-  width: @card1Width;
-  height: @card1Height;
-  position: absolute;
-  transform: translate3d(-50%, calc(-50% + @card1TranslateY), 0px);
+  // width: @card1Width;
+  // height: @card1Height;
+  // transform: translate3d(-50%, calc(-50% + @card1TranslateY), 0px);
   z-index: 5;
 }
 
 #card2:extend(.card):extend(.card-animation) {
-  width: @card2Width;
-  height: @card2Height;
-  position: absolute;
-  transform: translate3d(-50%, calc(-50% + @card2TranslateY), 0px);
+  // width: @card2Width;
+  // height: @card2Height;
+  // transform: translate3d(-50%, calc(-50% + @card2TranslateY), 0px);
   z-index: 4;
 }
 
 #card3:extend(.card):extend(.card-animation) {
-  width: @card3Width;
-  height: @card3Height;
-  position: absolute;
-  transform: translate3d(-50%, calc(-50% + @card3TranslateY), 0px);
+  // width: @card3Width;
+  // height: @card3Height;
+  // transform: translate3d(-50%, calc(-50% + @card3TranslateY), 0px);
   z-index: 3;
 }
 
 #back:extend(.card):extend(.card-animation) {
-  width: @backWidth;
-  height: @backHeight;
-  position: absolute;
-  transform: translate3d(-50%, calc(-50% + @backTranslateY), 0px);
+  // width: @backWidth;
+  // height: @backHeight;
+  // transform: translate3d(-50%, calc(-50% + @backTranslateY), 0px);
   z-index: 2;
   opacity: 0;
 }

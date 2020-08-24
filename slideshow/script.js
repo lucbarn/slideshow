@@ -234,6 +234,12 @@ function onCustomizeBtnClick(event) {
   }
 }
 
+// show cards after their dimensions have been set
+function initCards() {
+  updateCards();
+  cards.forEach(card => card.style.visibility = 'visible');
+}
+
 pov.addEventListener('mousedown', function() {
   povArea.style.backgroundColor = 'rgba(150,150,150,0.1)';
   cornerX = povArea.getBoundingClientRect().x;
