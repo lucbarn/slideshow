@@ -115,13 +115,13 @@
   visibility: hidden;
 }
 
-.card-animation {
+/* .card-animation {
   animation-name: none;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-}
+} */
 
-#card1-position:extend(.card) {
+#card1-position {
   /* width: @card1Width;
   height: @card1Height;
   transform: translate3d(-50%, calc(-50% + @card1TranslateY), 0px); */
@@ -132,7 +132,7 @@
   cursor: pointer;
 }
 
-#front:extend(.card):extend(.card-animation) {
+#front {
   /* width: @frontWidth;
   height: @frontHeight;
   transform: translate3d(-50%, -50%, 0px); */
@@ -140,28 +140,28 @@
   opacity: 0;
 }
 
-#card1:extend(.card):extend(.card-animation) {
+#card1 {
   /* width: @card1Width;
   height: @card1Height;
   transform: translate3d(-50%, calc(-50% + @card1TranslateY), 0px); */
   z-index: 5;
 }
 
-#card2:extend(.card):extend(.card-animation) {
+#card2 {
   /* width: @card2Width;
   height: @card2Height;
   transform: translate3d(-50%, calc(-50% + @card2TranslateY), 0px); */
   z-index: 4;
 }
 
-#card3:extend(.card):extend(.card-animation) {
+#card3 {
   /* width: @card3Width;
   height: @card3Height;
   transform: translate3d(-50%, calc(-50% + @card3TranslateY), 0px); */
   z-index: 3;
 }
 
-#back:extend(.card):extend(.card-animation) {
+#back {
   /* width: @backWidth;
   height: @backHeight;
   transform: translate3d(-50%, calc(-50% + @backTranslateY), 0px); */

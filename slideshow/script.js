@@ -8,6 +8,17 @@ const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modal-img');
 const hideModalButton = document.getElementById('modal-hide-button');
 
+// animations
+let forwardTransitionFront;
+let forwardTransitionCard1;
+let forwardTransitionCard2;
+let forwardTransitionCard3;
+
+let backwardTransitionCard1;
+let backwardTransitionCard2;
+let backwardTransitionCard3;
+let backwardTransitionBack;
+
 const srcs = [
   "https://source.unsplash.com/1fUu0dratoM/1200x900",
   "https://source.unsplash.com/n20DUSVsUk8/1200x900",
@@ -20,6 +31,21 @@ let animationInProgress = false;
 // head is the index of the front card in the srcs array
 let head = 0;
 
+const animationOptions = {
+  duration: 300,
+  fill: 'forwards'
+};
+
+let forwardFrontAnimation;
+let forwardCard1Animation;
+let forwardCard2Animation;
+let forwardCard3Animation;
+
+let backwardBackAnimation;
+let backwardCard3Animation;
+let backwardCard2Animation;
+let backwardCard1Animation;
+
 function next() {
   if (animationInProgress) {
     return;
@@ -27,11 +53,16 @@ function next() {
   animationInProgress = true;
   // the slideshow animation is triggered only if the screen is sufficiently large
   if (window.outerWidth > 800) {
-    front.style.animationName = 'forward_transition_front';
-    card1.style.animationName = 'forward_transition_card1';
-    card2.style.animationName = 'forward_transition_card2';
-    card3.style.animationName = 'forward_transition_card3';
-    back.style.animationName = 'forward_transition_back';
+    // front.style.animationName = 'forward_transition_front';
+    // card1.style.animationName = 'forward_transition_card1';
+    // card2.style.animationName = 'forward_transition_card2';
+    // card3.style.animationName = 'forward_transition_card3';
+    // back.style.animationName = 'forward_transition_back';
+
+    forwardFrontAnimation = front.animate(forwardTransitionFront, animationOptions);
+    forwardCard1Animation = card1.animate(forwardTransitionCard1, animationOptions);
+    forwardCard2Animation = card2.animate(forwardTransitionCard2, animationOptions);
+    forwardCard3Animation = card3.animate(forwardTransitionCard3, animationOptions);
   }
 
   head = (srcsLength + head - 1) % srcsLength;
@@ -42,13 +73,20 @@ function next() {
     card2.src = srcs[(head + 2) % srcsLength];
     card3.src = srcs[(head + 3) % srcsLength];
     back.src = srcs[(head + 4) % srcsLength];
-    front.style.animationName = 'none';
-    card1.style.animationName = 'none';
-    card2.style.animationName = 'none';
-    card3.style.animationName = 'none';
-    back.style.animationName = 'none';
+
+    // front.style.animationName = 'none';
+    // card1.style.animationName = 'none';
+    // card2.style.animationName = 'none';
+    // card3.style.animationName = 'none';
+    // back.style.animationName = 'none';
+
+    forwardFrontAnimation.cancel();
+    forwardCard1Animation.cancel();
+    forwardCard2Animation.cancel();
+    forwardCard3Animation.cancel();
+
     animationInProgress = false;
-  }, (window.outerWidth > 800) ? 500:50);
+  }, (window.outerWidth > 800) ? animationOptions.duration : 50);
 }
 
 function previous() {
@@ -57,11 +95,16 @@ function previous() {
   }
   animationInProgress = true;
   if (window.outerWidth > 800) {
-    back.style.animationName = 'backward_transition_back';
-    card3.style.animationName = 'backward_transition_card3';
-    card2.style.animationName = 'backward_transition_card2';
-    card1.style.animationName = 'backward_transition_card1';
-    front.style.animationName = 'backward_transition_front';
+    // back.style.animationName = 'backward_transition_back';
+    // card3.style.animationName = 'backward_transition_card3';
+    // card2.style.animationName = 'backward_transition_card2';
+    // card1.style.animationName = 'backward_transition_card1';
+    // front.style.animationName = 'backward_transition_front';
+
+    backwardBackAnimation = back.animate(backwardTransitionBack, animationOptions);
+    backwardCard3Animation = card3.animate(backwardTransitionCard3, animationOptions);
+    backwardCard2Animation = card2.animate(backwardTransitionCard2, animationOptions);
+    backwardCard1Animation = card1.animate(backwardTransitionCard1, animationOptions);
   }
 
   head = (head + 1) % srcsLength;
@@ -72,13 +115,20 @@ function previous() {
     card2.src = srcs[(head + 2) % srcsLength];
     card3.src = srcs[(head + 3) % srcsLength];
     back.src = srcs[(head + 4) % srcsLength];
-    back.style.animationName = 'none';
-    card3.style.animationName = 'none';
-    card2.style.animationName = 'none';
-    card1.style.animationName = 'none';
-    front.style.animationName = 'none';
+
+    // back.style.animationName = 'none';
+    // card3.style.animationName = 'none';
+    // card2.style.animationName = 'none';
+    // card1.style.animationName = 'none';
+    // front.style.animationName = 'none';
+
+    backwardBackAnimation.cancel();
+    backwardCard3Animation.cancel();
+    backwardCard2Animation.cancel();
+    backwardCard1Animation.cancel();
+
     animationInProgress = false;
-  }, (window.outerWidth > 800) ? 500:50);
+  }, (window.outerWidth > 800) ? animationOptions.duration : 50);
 }
 
 function showModal() {
@@ -192,6 +242,33 @@ function updateCards() {
   card1Position.style.transform = card1.style.transform;
 }
 
+function createAnimation(element, opacity) {
+  const from = {};
+  const to = {
+    width: element.style.width,
+    height: element.style.height,
+    transform: element.style.transform
+  };
+
+  if (opacity !== undefined) {
+    to.opacity = opacity;
+  }
+
+  return [from, to];
+} 
+
+function updateAnimations() {
+  forwardTransitionFront = createAnimation(card1, 1);
+  forwardTransitionCard1 = createAnimation(card2);
+  forwardTransitionCard2 = createAnimation(card3);
+  forwardTransitionCard3 = createAnimation(back, 0);
+
+  backwardTransitionCard1 = createAnimation(front, 0);
+  backwardTransitionCard2 = createAnimation(card1);
+  backwardTransitionCard3 = createAnimation(card2);
+  backwardTransitionBack = createAnimation(card3, 1);
+}
+
 let cornerX;
 let cornerY;
 const xLimit = povContainerSide;
@@ -238,8 +315,11 @@ function onCustomizeBtnClick(event) {
 
 function init() {
   updateCards();
+  updateAnimations();
   // show cards after their dimensions have been set
-  cards.forEach(card => card.style.visibility = 'visible');
+  cards
+    .concat(card1Position)
+    .forEach(card => card.style.visibility = 'visible');
 
   // init pov container
   povContainer.style.width = `${povContainerSide}px`;
@@ -247,10 +327,10 @@ function init() {
   povContainer.style.margin = `10px 10px 10px ${povContainerCardsDistance}px`;
 
   // init cards profiles
-  cardsProfiles.forEach(cardProfile => {
+  for (const cardProfile of cardsProfiles) {
     cardProfile.style.height = `${cardsHeight / controlsContainerScale}px`;
     cardProfile.style.margin = `auto 0 auto ${spaceBetweenCards / controlsContainerScale}px`;
-  });
+  }
 }
 
 pov.addEventListener('mousedown', function() {
@@ -263,6 +343,7 @@ pov.addEventListener('mousedown', function() {
 document.addEventListener('mouseup', function(event) {
   povArea.style.backgroundColor = '';
   document.removeEventListener('mousemove', movePov);
+  updateAnimations();
 
   // when the controls container div is visible close it if
   // an element outside of its area is clicked; if the element
