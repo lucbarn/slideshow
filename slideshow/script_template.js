@@ -237,7 +237,9 @@ function onCustomizeBtnClick(event) {
 // show cards after their dimensions have been set
 function initCards() {
   updateCards();
-  cards.forEach(card => card.style.visibility = 'visible');
+  cards
+    .concat(card1Position)
+    .forEach(el => el.style.visibility = 'visible');
 }
 
 pov.addEventListener('mousedown', function() {

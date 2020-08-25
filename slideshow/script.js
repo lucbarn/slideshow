@@ -101,9 +101,11 @@ function hideModal() {
 const controlsContainer = document.getElementById('controls-container');
 const pov = document.getElementById('pov');
 const povArea = document.getElementById('pov-area');
+const povContainer = document.getElementById('pov-container');
 const cardsContainer = document.getElementById('cards-container');
 const card1Position = document.getElementById('card1-position');
 const imagesWrapper = document.getElementById('images-wrapper');
+const cardsProfiles = document.getElementsByClassName('card-profile');
 const cards = [front, card1, card2, card3, back];
 
 const povContainerCardsDistance = 80;
@@ -234,10 +236,21 @@ function onCustomizeBtnClick(event) {
   }
 }
 
-// show cards after their dimensions have been set
-function initCards() {
+function init() {
   updateCards();
+  // show cards after their dimensions have been set
   cards.forEach(card => card.style.visibility = 'visible');
+
+  // init pov container
+  povContainer.style.width = `${povContainerSide}px`;
+  povContainer.style.height = `${povContainerSide}px`;
+  povContainer.style.margin = `10px 10px 10px ${povContainerCardsDistance}px`;
+
+  // init cards profiles
+  cardsProfiles.forEach(cardProfile => {
+    cardProfile.style.height = `${cardsHeight / controlsContainerScale}px`;
+    cardProfile.style.margin = `auto 0 auto ${spaceBetweenCards / controlsContainerScale}px`;
+  });
 }
 
 pov.addEventListener('mousedown', function() {
