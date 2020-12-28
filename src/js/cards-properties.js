@@ -1,0 +1,5 @@
+const cardsProperties = {
+
+};
+
+export { cardsProperties };

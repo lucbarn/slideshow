@@ -11,14 +11,14 @@
     <div id="cards-container">
       <div id="card1-position" class="card" onclick="showModal()"></div>
 
-      <img id="front" class="card" src="https://source.unsplash.com/1fUu0dratoM/1200x900">
-      <img id="card1" class="card" src="https://source.unsplash.com/n20DUSVsUk8/1200x900">
-      <img id="card2" class="card" src="https://source.unsplash.com/ppnnu5-9bgI/1200x900">
-      <img id="card3" class="card" src="https://source.unsplash.com/vgxIfXwsUAE/1200x900">
-      <img id="back" class="card" src="https://source.unsplash.com/KhhOAsE5M6Y/1200x900">
+      <img id="front" class="card">
+      <img id="card1" class="card">
+      <img id="card2" class="card">
+      <img id="card3" class="card">
+      <img id="back" class="card">
       
-      <div id="left-arrow" onclick="previous()"></div>
-      <div id="right-arrow" onclick="next()"></div>
+      <div id="left-arrow"></div>
+      <div id="right-arrow"></div>
     </div>
 
     <div id="modal">
@@ -46,11 +46,11 @@
 
     <div id="controls-container">
       <div id="cards-profile-container">
-        <div class="card-profile"></div>
-        <div class="card-profile"></div>
-        <div class="card-profile"></div>
-        <div class="card-profile"></div>
-        <div class="card-profile"></div>
+        <div id="back-profile" class="card-profile"></div>
+        <div id="card3-profile" class="card-profile"></div>
+        <div id="card2-profile" class="card-profile"></div>
+        <div id="card1-profile" class="card-profile"></div>
+        <div id="front-profile" class="card-profile"></div>
       </div>
       <div id="pov-container">
         <div id="pov"></div>
@@ -58,9 +58,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-      init();
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>
