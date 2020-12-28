@@ -1,0 +1,24 @@
+{
+  "name": "slideshow",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucbarn/slideshow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucbarn/slideshow/issues"
+  },
+  "homepage": "https://github.com/lucbarn/slideshow#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
