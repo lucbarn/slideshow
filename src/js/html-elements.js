@@ -25,6 +25,8 @@ const backProfileElement = document.getElementById('back-profile');
 const leftArrowElement = document.getElementById('left-arrow');
 const rightArrowElement = document.getElementById('right-arrow');
 
+const customizeButtonElement = document.getElementById('customize-btn');
+
 export {
   frontElement,
   card1Element,
@@ -47,5 +49,6 @@ export {
   card3ProfileElement,
   backProfileElement,
   leftArrowElement,
-  rightArrowElement
+  rightArrowElement,
+  customizeButtonElement
 };

@@ -1,13 +1,5 @@
 import { srcs } from './images-sources';
-import {
-  frontElement,
-  card1Element,
-  card2Element,
-  card3Element,
-  backElement,
-  modalElement,
-  modalImgElement
-} from './html-elements';
+import { modalElement, modalImgElement } from './html-elements';
 
 class Cards {
 
@@ -21,8 +13,8 @@ class Cards {
   // head is the index of the front card in the srcs array
   #headPosition = 0;
 
-  constructor(animationService) {
-    this.animationService = animationService;
+  constructor(cardsService) {
+    this.cardsService = cardsService;
   }
 
   /**
@@ -39,6 +31,13 @@ class Cards {
     card2Element.src = srcs[2];
     card3Element.src = srcs[3];
     backElement.src = srcs[4];
+  }
+
+  showCards() {
+    const cardsElements = this.cardsService.getCardsElements();
+    cardsElements
+      .concat(card1PositionElement)
+      .forEach(element => element.style.visibility = 'visible');
   }
 
   showModal() {
@@ -65,10 +64,10 @@ class Cards {
     this.#isAnimationInProgress = true;
 
     if (this.isMinWidthWindow) {
-      forwardFrontAnimation = frontElement.animate(this.animationService.forwardTransitionFront, this.#animationOptions);
-      forwardCard1Animation = card1Element.animate(this.animationService.forwardTransitionCard1, this.#animationOptions);
-      forwardCard2Animation = card2Element.animate(this.animationService.forwardTransitionCard2, this.#animationOptions);
-      forwardCard3Animation = card3Element.animate(this.animationService.forwardTransitionCard3, this.#animationOptions);
+      forwardFrontAnimation = frontElement.animate(this.cardsService.forwardTransitionFront, this.#animationOptions);
+      forwardCard1Animation = card1Element.animate(this.cardsService.forwardTransitionCard1, this.#animationOptions);
+      forwardCard2Animation = card2Element.animate(this.cardsService.forwardTransitionCard2, this.#animationOptions);
+      forwardCard3Animation = card3Element.animate(this.cardsService.forwardTransitionCard3, this.#animationOptions);
     }
 
     this.#headPosition = (this.#srcsLength + this.#headPosition - 1) % this.#srcsLength;
@@ -102,10 +101,10 @@ class Cards {
     this.#isAnimationInProgress = true;
 
     if (this.isMinWidthWindow) {
-      backwardBackAnimation = backElement.animate(this.animationService.backwardTransitionBack, this.#animationOptions);
-      backwardCard3Animation = card3Element.animate(this.animationService.backwardTransitionCard3, this.#animationOptions);
-      backwardCard2Animation = card2Element.animate(this.animationService.backwardTransitionCard2, this.#animationOptions);
-      backwardCard1Animation = card1Element.animate(this.animationService.backwardTransitionCard1, this.#animationOptions);
+      backwardBackAnimation = backElement.animate(this.cardsService.backwardTransitionBack, this.#animationOptions);
+      backwardCard3Animation = card3Element.animate(this.cardsService.backwardTransitionCard3, this.#animationOptions);
+      backwardCard2Animation = card2Element.animate(this.cardsService.backwardTransitionCard2, this.#animationOptions);
+      backwardCard1Animation = card1Element.animate(this.cardsService.backwardTransitionCard1, this.#animationOptions);
     }
 
     this.#headPosition = (this.#headPosition + 1) % this.#srcsLength;
@@ -127,3 +126,5 @@ class Cards {
   }
 
 }
+
+export { Cards };

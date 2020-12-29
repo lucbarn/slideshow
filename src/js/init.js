@@ -1,56 +1,41 @@
-import { AnimationService } from './animation-service';
+import { CardsService } from './cards-service';
 import { Cards } from './cards';
+import { PointOfViewController } from './point-of-view-controller';
 import {
   leftArrowElement,
   rightArrowElement,
   card1PositionElement,
   modalHideButtonElement,
-  frontElement,
-  card1Element,
-  card2Element,
-  card3Element,
-  backElement,
-  card1PositionElement
+  customizeButtonElement,
+  povElement
 } from './html-elements';
 
 function init() {
-  const animationService = new AnimationService();
-  const cards = new Cards(animationService);
-  const pointOfViewController = new pointOfViewController(animationService);
+  const cardsService = new CardsService();
+  const cards = new Cards(cardsService);
+  const pointOfViewController = new PointOfViewController(cardsService);
 
+  // set cards dimensions
   pointOfViewController.updateCards();
-  animationService.updateAnimations();
+
+  // create initial animations
+  cardsService.updateAnimations();
 
   // show cards after their dimensions have been set
-  const cardsElements = [frontElement, card1Element, card2Element, card3Element, backElement];
-  cardsElements
-    .concat(card1PositionElement)
-    .forEach(element => element.style.visibility = 'visible');
+  cards.showCards();
 
-  // init pov container
-  povContainer.style.width = `${povContainerSide}px`;
-  povContainer.style.height = `${povContainerSide}px`;
-  povContainer.style.margin = `10px 10px 10px ${povContainerCardsDistance}px`;
+  // init pov controller container and cards profiles
+  pointOfViewController.initPovController();
 
-  const cardsProfiles = [frontProfile, card1Profile, card2Profile, card3Profile, backProfile];
-
-  // init cards profiles
-  let cardProfile;
-  for (let i = 0; i < cardsProfiles.length; i++) {
-    cardProfile = cardsProfiles[i];
-    cardProfile.style.height = `${cardsHeight / controlsContainerScale}px`;
-    if (i < cardsProfiles.length-1) {
-      cardProfile.style.margin = `auto 0 auto ${space / controlsContainerScale}px`;
-    } else {
-      // backProfile has no left margin
-      cardProfile.style.margin = 'auto 0';
-    }
-  }
-
+  // add event listeners
   leftArrowElement.addEventListener('click', () => cards.previous());
   rightArrowElement.addEventListener('click', () => cards.next());
   card1PositionElement.addEventListener('click', () => cards.showModal());
   modalHideButtonElement.addEventListener('click', () => cards.hideModal());
+  customizeButtonElement.addEventListener('click', () => pointOfViewController.onCustomizeBtnClick());
+  povElement.addEventListener('mousedown', () => pointOfViewController.onMouseDown());
+  document.addEventListener('mouseup', () => pointOfViewController.onMouseUp());
+  window.addEventListener('resize', () => pointOfViewController.getWindowInnerHeight());
 }
 
 export { init };

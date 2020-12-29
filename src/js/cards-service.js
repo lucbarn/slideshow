@@ -1,6 +1,20 @@
-import { frontElement, card1Element, card2Element, card3Element, backElement } from "./html-elements";
+import {
+  frontElement,
+  card1Element,
+  card2Element,
+  card3Element,
+  backElement,
+  frontProfileElement,
+  card1ProfileElement,
+  card2ProfileElement,
+  card3ProfileElement,
+  backProfileElement
+} from "./html-elements";
 
-class AnimationService {
+class CardsService {
+  #cardsElements = [frontElement, card1Element, card2Element, card3Element, backElement];
+  #cardsProfiles = [frontProfileElement, card1ProfileElement, card2ProfileElement, card3ProfileElement, backProfileElement];
+
   constructor() {
     this.forwardTransitionFront = null;
     this.forwardTransitionCard1 = null;
@@ -39,6 +53,14 @@ class AnimationService {
     this.backwardTransitionCard3 = createAnimation(card2Element);
     this.backwardTransitionBack = createAnimation(card3Element, 1);
   }
+
+  getCardsElements() {
+    return this.#cardsElements;
+  }
+
+  getCardsProfiles() {
+    return this.#cardsProfiles;
+  }
 }
 
-export { AnimationService };
+export { CardsService };
