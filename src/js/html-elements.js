@@ -13,6 +13,7 @@ const povElement = document.getElementById('pov');
 const povAreaElement = document.getElementById('pov-area');
 const povContainerElement = document.getElementById('pov-container');
 const cardsContainerElement = document.getElementById('cards-container');
+const cardsProfilesContainerElement = document.getElementById('cards-profiles-container');
 const card1PositionElement = document.getElementById('card1-position');
 const imagesWrapperElement = document.getElementById('images-wrapper');
 
@@ -41,6 +42,7 @@ export {
   povAreaElement,
   povContainerElement,
   cardsContainerElement,
+  cardsProfilesContainerElement,
   card1PositionElement,
   imagesWrapperElement,
   frontProfileElement,

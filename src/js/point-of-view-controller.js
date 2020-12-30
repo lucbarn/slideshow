@@ -3,6 +3,7 @@ import {
   povContainerElement,
   povAreaElement,
   cardsContainerElement,
+  cardsProfilesContainerElement,
   controlsContainerElement,
   card1PositionElement
 } from './html-elements';
@@ -23,12 +24,21 @@ class PointOfViewController {
     this.cardsHeight = 390;
     // space between cards, the first card is placed on the y-axis, the others to its left
     this.spaceBetweenCards = 100;
+    // max space between cards
+    this.maxSpaceBetweenCards = 150;
+    // min space between cards
+    this.minSpaceBetweenCards = 50;
+    // keeps track of the previous value of the space between cards and is used while dragging the cards profiles
+    this.previousSpaceBetweenCards;
 
     // ratio between width and height of each card
     this.cardsWidthHeightRatio = 4 / 3;
     // povX and povY are the coordinates of the point of view on the cartesian plane
     this.povX = (this.povContainerCardsDistance + this.povContainerSide / 2) * this.controlsContainerScale;
     this.povY = this.cardsHeight / 2;
+
+    // width of each card profile (in pixels)
+    this.cardProfileWidth = 3;
 
     this.cornerX;
     this.cornerY;
@@ -37,6 +47,8 @@ class PointOfViewController {
     this.windowHeight = window.innerHeight;
 
     this.boundMovePov = this.movePov.bind(this);
+    this.moveCardProfileFunction;
+    this.cardProfileClickPoint;
   }
 
   initPovController() {
@@ -46,10 +58,15 @@ class PointOfViewController {
 
     const cardsProfiles = this.cardsService.getCardsProfiles();
 
+    const cardsProfilesWidthsSum = this.cardProfileWidth * cardsProfiles.length;
+    const cardsProfilesMarginsMaxSum = (this.maxSpaceBetweenCards / this.controlsContainerScale) * (cardsProfiles.length - 1);
+    cardsProfilesContainerElement.style.width = `${cardsProfilesWidthsSum + cardsProfilesMarginsMaxSum}px`;
+
     // init cards profiles
     let cardProfile;
     for (let i = 0; i < cardsProfiles.length; i++) {
       cardProfile = cardsProfiles[i];
+      cardProfile.style.width = `${this.cardProfileWidth}px`;
       cardProfile.style.height = `${this.cardsHeight / this.controlsContainerScale}px`;
       if (i < cardsProfiles.length-1) {
         cardProfile.style.margin = `auto 0 auto ${this.spaceBetweenCards / this.controlsContainerScale}px`;
@@ -124,13 +141,47 @@ class PointOfViewController {
     card1PositionElement.style.transform = cards[1].style.transform;
   }
 
-  updateSpaceBetweenCards(space) {
+  onCardProfileMouseDownFactory(k) {
+    const f = event => {
+      if (this.moveCardProfileFunction) {
+        document.removeEventListener('mousemove', this.moveCardProfileFunction);
+      }
+      this.cardProfileClickPoint = event.clientX;
+      this.previousSpaceBetweenCards = this.spaceBetweenCards;
+      this.moveCardProfileFunction = this.moveCardProfileFactory(k).bind(this);
+      document.addEventListener('mousemove', this.moveCardProfileFunction);
+    };
+
+    return f;
+  }
+
+  onCardProfileMouseUp() {
+    document.removeEventListener('mousemove', this.moveCardProfileFunction);
+  }
+
+  moveCardProfileFactory(k) {
+    const f = event => {
+      // prevent elements highlighting while dragging the card profile
+      event.preventDefault();
+
+      const x = event.clientX;
+      const scaledValue = (this.cardProfileClickPoint - x) / k * this.controlsContainerScale + this.previousSpaceBetweenCards;
+      const boundedValue = Math.max(this.minSpaceBetweenCards, Math.min(scaledValue, this.maxSpaceBetweenCards));
+      this.spaceBetweenCards = boundedValue;
+      this.updateSpaceBetweenCardsProfiles();
+      this.updateCards();
+    };
+
+    return f;
+  }
+
+  updateSpaceBetweenCardsProfiles() {
     const cardsProfiles = this.cardsService.getCardsProfiles();
     let cardProfile;
     // backProfile has no left margin so it is not updated
     for (let i = 0; i < cardsProfiles.length-1; i++) {
       cardProfile = cardsProfiles[i];
-      cardProfile.style.marginLeft = `${space / this.controlsContainerScale}px`;
+      cardProfile.style.marginLeft = `${this.spaceBetweenCards / this.controlsContainerScale}px`;
     }
   }
 
@@ -174,18 +225,23 @@ class PointOfViewController {
     }
   }
 
-  onMouseDown() {
+  onPovMouseDown() {
+    if (this.boundMovePov) {
+      document.removeEventListener('mousemove', this.boundMovePov);
+    }
     povAreaElement.style.backgroundColor = 'rgba(150,150,150,0.1)';
     this.cornerX = povAreaElement.getBoundingClientRect().x;
     this.cornerY = povAreaElement.getBoundingClientRect().y;
     document.addEventListener('mousemove', this.boundMovePov);
   }
 
-  onMouseUp(event) {
+  onPovMouseUp() {
     povAreaElement.style.backgroundColor = '';
     document.removeEventListener('mousemove', this.boundMovePov);
     this.cardsService.updateAnimations();
+  }
 
+  onMouseUp(event) {
     // when the controls container div is visible close it if
     // an element outside of its area is clicked; if the element
     // is customize button then the closing action is handled by
@@ -196,6 +252,9 @@ class PointOfViewController {
       controlsContainerElement.classList.remove('visible');
       this.controlsVisible = false;
     }
+
+    this.onCardProfileMouseUp();
+    this.onPovMouseUp();
   }
 
   getWindowInnerHeight() {

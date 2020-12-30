@@ -7,7 +7,11 @@ import {
   card1PositionElement,
   modalHideButtonElement,
   customizeButtonElement,
-  povElement
+  povElement,
+  card1ProfileElement,
+  card2ProfileElement,
+  card3ProfileElement,
+  backProfileElement
 } from './html-elements';
 
 function init() {
@@ -33,10 +37,18 @@ function init() {
   // add event listeners
   leftArrowElement.addEventListener('click', () => cards.previous());
   rightArrowElement.addEventListener('click', () => cards.next());
+
   card1PositionElement.addEventListener('click', () => cards.showModal());
   modalHideButtonElement.addEventListener('click', () => cards.hideModal());
   customizeButtonElement.addEventListener('click', () => pointOfViewController.onCustomizeBtnClick());
-  povElement.addEventListener('mousedown', () => pointOfViewController.onMouseDown());
+
+  povElement.addEventListener('mousedown', () => pointOfViewController.onPovMouseDown());
+
+  card1ProfileElement.addEventListener('mousedown', pointOfViewController.onCardProfileMouseDownFactory(1));
+  card2ProfileElement.addEventListener('mousedown', pointOfViewController.onCardProfileMouseDownFactory(2));
+  card3ProfileElement.addEventListener('mousedown', pointOfViewController.onCardProfileMouseDownFactory(3));
+  backProfileElement.addEventListener('mousedown', pointOfViewController.onCardProfileMouseDownFactory(4));
+
   document.addEventListener('mouseup', event => pointOfViewController.onMouseUp(event));
   window.addEventListener('resize', () => pointOfViewController.getWindowInnerHeight());
 }
