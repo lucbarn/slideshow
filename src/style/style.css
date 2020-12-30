@@ -436,10 +436,13 @@
 
 #cards-profile-container {
   display: flex;
-  flex-direction: row-reverse;
 }
 
 .card-profile {
     width: 3px;
     background-color: #b2b8d3;
+}
+
+#back-profile, #front-profile {
+  opacity: 0.4;
 }
