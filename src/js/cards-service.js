@@ -12,19 +12,20 @@ import {
 } from "./html-elements";
 
 class CardsService {
-  #cardsElements = [frontElement, card1Element, card2Element, card3Element, backElement];
-  #cardsProfiles = [frontProfileElement, card1ProfileElement, card2ProfileElement, card3ProfileElement, backProfileElement];
 
   constructor() {
-    this.forwardTransitionFront = null;
-    this.forwardTransitionCard1 = null;
-    this.forwardTransitionCard2 = null;
-    this.forwardTransitionCard3 = null;
+    this.cardsElements = [frontElement, card1Element, card2Element, card3Element, backElement];
+    this.cardsProfiles = [frontProfileElement, card1ProfileElement, card2ProfileElement, card3ProfileElement, backProfileElement];
 
-    this.backwardTransitionCard1 = null;
-    this.backwardTransitionCard2 = null;
-    this.backwardTransitionCard3 = null;
-    this.backwardTransitionBack = null;
+    this.forwardTransitionFront;
+    this.forwardTransitionCard1;
+    this.forwardTransitionCard2;
+    this.forwardTransitionCard3;
+
+    this.backwardTransitionCard1;
+    this.backwardTransitionCard2;
+    this.backwardTransitionCard3;
+    this.backwardTransitionBack;
   }
 
   createAnimation(element, opacity) {
@@ -43,23 +44,23 @@ class CardsService {
   }
     
   updateAnimations() {
-    this.forwardTransitionFront = createAnimation(card1Element, 1);
-    this.forwardTransitionCard1 = createAnimation(card2Element);
-    this.forwardTransitionCard2 = createAnimation(card3Element);
-    this.forwardTransitionCard3 = createAnimation(backElement, 0);
+    this.forwardTransitionFront = this.createAnimation(card1Element, 1);
+    this.forwardTransitionCard1 = this.createAnimation(card2Element);
+    this.forwardTransitionCard2 = this.createAnimation(card3Element);
+    this.forwardTransitionCard3 = this.createAnimation(backElement, 0);
   
-    this.backwardTransitionCard1 = createAnimation(frontElement, 0);
-    this.backwardTransitionCard2 = createAnimation(card1Element);
-    this.backwardTransitionCard3 = createAnimation(card2Element);
-    this.backwardTransitionBack = createAnimation(card3Element, 1);
+    this.backwardTransitionCard1 = this.createAnimation(frontElement, 0);
+    this.backwardTransitionCard2 = this.createAnimation(card1Element);
+    this.backwardTransitionCard3 = this.createAnimation(card2Element);
+    this.backwardTransitionBack = this.createAnimation(card3Element, 1);
   }
 
   getCardsElements() {
-    return this.#cardsElements;
+    return this.cardsElements;
   }
 
   getCardsProfiles() {
-    return this.#cardsProfiles;
+    return this.cardsProfiles;
   }
 }
 

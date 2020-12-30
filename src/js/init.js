@@ -21,6 +21,9 @@ function init() {
   // create initial animations
   cardsService.updateAnimations();
 
+  // set cards sources
+  cards.setCardsSources();
+
   // show cards after their dimensions have been set
   cards.showCards();
 
@@ -34,7 +37,7 @@ function init() {
   modalHideButtonElement.addEventListener('click', () => cards.hideModal());
   customizeButtonElement.addEventListener('click', () => pointOfViewController.onCustomizeBtnClick());
   povElement.addEventListener('mousedown', () => pointOfViewController.onMouseDown());
-  document.addEventListener('mouseup', () => pointOfViewController.onMouseUp());
+  document.addEventListener('mouseup', event => pointOfViewController.onMouseUp(event));
   window.addEventListener('resize', () => pointOfViewController.getWindowInnerHeight());
 }
 

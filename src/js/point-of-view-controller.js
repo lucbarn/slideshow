@@ -1,44 +1,48 @@
 import {
   povElement,
   povContainerElement,
+  povAreaElement,
   cardsContainerElement,
+  controlsContainerElement,
   card1PositionElement
 } from './html-elements';
 
 class PointOfViewController {
 
-  // distance between the container of the point of view and the first card
-  #povContainerCardsDistance = 80;
-  // side length of the container of the point of view
-  #povContainerSide = 200;
-  // ratio between theoretical cards dimensions and positions and relative values as
-  // displayed in the controls container
-  #controlsContainerScale = 4;
-  // theoretical height of each card
-  #cardsHeight = 390;
-  // space between cards, the first card is placed on the y-axis, the others to its left
-  #spaceBetweenCards = 100;
-
-  // ratio between width and height of each card
-  #cardsWidthHeightRatio = 4 / 3;
-  // povX and povY are the coordinates of the point of view on the cartesian plane
-  #povX = (this.#povContainerCardsDistance + this.#povContainerSide / 2) * this.#controlsContainerScale;
-  #povY = this.#cardsHeight / 2;
-
-  #cornerX;
-  #cornerY;
-
-  #controlsVisible = false;
-  #windowHeight = window.innerHeight;
-
   constructor(cardsService) {
     this.cardsService = cardsService;
+
+    // distance between the container of the point of view and the first card
+    this.povContainerCardsDistance = 80;
+    // side length of the container of the point of view
+    this.povContainerSide = 200;
+    // ratio between theoretical cards dimensions and positions and relative values as
+    // displayed in the controls container
+    this.controlsContainerScale = 4;
+    // theoretical height of each card
+    this.cardsHeight = 390;
+    // space between cards, the first card is placed on the y-axis, the others to its left
+    this.spaceBetweenCards = 100;
+
+    // ratio between width and height of each card
+    this.cardsWidthHeightRatio = 4 / 3;
+    // povX and povY are the coordinates of the point of view on the cartesian plane
+    this.povX = (this.povContainerCardsDistance + this.povContainerSide / 2) * this.controlsContainerScale;
+    this.povY = this.cardsHeight / 2;
+
+    this.cornerX;
+    this.cornerY;
+
+    this.controlsVisible = false;
+    this.windowHeight = window.innerHeight;
+
+    this.boundMovePov = this.movePov.bind(this);
   }
 
   initPovController() {
-    povContainerElement.style.width = `${this.#povContainerSide}px`;
-    povContainerElement.style.height = `${this.#povContainerSide}px`;
-    povContainerElement.style.margin = `10px 10px 10px ${this.#povContainerCardsDistance}px`;
+    povContainerElement.style.width = `${this.povContainerSide}px`;
+    povContainerElement.style.height = `${this.povContainerSide}px`;
+    povContainerElement.style.margin = `10px 10px 10px ${this.povContainerCardsDistance}px`;
 
     const cardsProfiles = this.cardsService.getCardsProfiles();
 
@@ -46,9 +50,9 @@ class PointOfViewController {
     let cardProfile;
     for (let i = 0; i < cardsProfiles.length; i++) {
       cardProfile = cardsProfiles[i];
-      cardProfile.style.height = `${this.#cardsHeight / this.#controlsContainerScale}px`;
+      cardProfile.style.height = `${this.cardsHeight / this.controlsContainerScale}px`;
       if (i < cardsProfiles.length-1) {
-        cardProfile.style.margin = `auto 0 auto ${this.#spaceBetweenCards / this.#controlsContainerScale}px`;
+        cardProfile.style.margin = `auto 0 auto ${this.spaceBetweenCards / this.controlsContainerScale}px`;
       } else {
         // backProfile has no left margin
         cardProfile.style.margin = 'auto 0';
@@ -80,11 +84,11 @@ class PointOfViewController {
     const styleUpdatedValues = [];
 
     for (let i = 0; i < 5; i++) {
-      y1 = (this.#povY * this.#spaceBetweenCards * i) / (this.#povX + this.#spaceBetweenCards * i);
-      y2 = (this.#cardsHeight * this.#povX + this.#povY * this.#spaceBetweenCards * i) / (this.#povX + this.#spaceBetweenCards * i);
-      scaleCoefficient = windowHeight / (2 * this.#povX);
+      y1 = (this.povY * this.spaceBetweenCards * i) / (this.povX + this.spaceBetweenCards * i);
+      y2 = (this.cardsHeight * this.povX + this.povY * this.spaceBetweenCards * i) / (this.povX + this.spaceBetweenCards * i);
+      scaleCoefficient = this.windowHeight / (2 * this.povX);
       height = (y2-y1) * scaleCoefficient;
-      width = height * this.#cardsWidthHeightRatio;
+      width = height * this.cardsWidthHeightRatio;
       verticalTranslation = y1 * scaleCoefficient;
       styleUpdatedValues.push({height, width, verticalTranslation});
     }
@@ -126,7 +130,7 @@ class PointOfViewController {
     // backProfile has no left margin so it is not updated
     for (let i = 0; i < cardsProfiles.length-1; i++) {
       cardProfile = cardsProfiles[i];
-      cardProfile.style.marginLeft = `${space / this.#controlsContainerScale}px`;
+      cardProfile.style.marginLeft = `${space / this.controlsContainerScale}px`;
     }
   }
 
@@ -134,68 +138,68 @@ class PointOfViewController {
     // prevent elements highlighting while dragging the point of view
     event.preventDefault();
 
-    const xLimit = this.#povContainerSide;
-    const yLimit = this.#povContainerSide;
+    const xLimit = this.povContainerSide;
+    const yLimit = this.povContainerSide;
     const x = event.clientX;
     const y = event.clientY;
     let xPos;
     let yPos;
 
     // keep pov inside its container
-    if (x > this.#cornerX + xLimit / 2) {
-      xPos = Math.min(x - this.#cornerX, xLimit);
+    if (x > this.cornerX + xLimit / 2) {
+      xPos = Math.min(x - this.cornerX, xLimit);
     } else {
-      xPos = Math.max(x - this.#cornerX, 0);
+      xPos = Math.max(x - this.cornerX, 0);
     }
-    if (y > this.#cornerY + yLimit / 2) {
-      yPos = Math.min(y - this.#cornerY, yLimit);
+    if (y > this.cornerY + yLimit / 2) {
+      yPos = Math.min(y - this.cornerY, yLimit);
     } else {
-      yPos = Math.max(y - this.#cornerY, 0);
+      yPos = Math.max(y - this.cornerY, 0);
     }
 
     povElement.style.left = `${xPos}px`;
     povElement.style.top = `${yPos}px`;
-    this.#povX = (xPos + this.#povContainerCardsDistance) * this.#controlsContainerScale;
-    this.#povY = ((yLimit - yPos) - (yLimit - this.#cardsHeight / this.#controlsContainerScale) / 2) * this.#controlsContainerScale;
+    this.povX = (xPos + this.povContainerCardsDistance) * this.controlsContainerScale;
+    this.povY = ((yLimit - yPos) - (yLimit - this.cardsHeight / this.controlsContainerScale) / 2) * this.controlsContainerScale;
     this.updateCards();
   }
 
   onCustomizeBtnClick() {
-    if (!this.#controlsVisible) {
+    if (!this.controlsVisible) {
       controlsContainerElement.classList.add('visible');
-      this.#controlsVisible = true;
+      this.controlsVisible = true;
     } else {
       controlsContainerElement.classList.remove('visible');
-      this.#controlsVisible = false;
+      this.controlsVisible = false;
     }
   }
 
   onMouseDown() {
     povAreaElement.style.backgroundColor = 'rgba(150,150,150,0.1)';
-    this.#cornerX = povAreaElement.getBoundingClientRect().x;
-    this.#cornerY = povAreaElement.getBoundingClientRect().y;
-    document.addEventListener('mousemove', this.movePov.bind(this));
+    this.cornerX = povAreaElement.getBoundingClientRect().x;
+    this.cornerY = povAreaElement.getBoundingClientRect().y;
+    document.addEventListener('mousemove', this.boundMovePov);
   }
 
   onMouseUp(event) {
     povAreaElement.style.backgroundColor = '';
-    document.removeEventListener('mousemove', this.movePov.bind(this));
+    document.removeEventListener('mousemove', this.boundMovePov);
     this.cardsService.updateAnimations();
 
     // when the controls container div is visible close it if
     // an element outside of its area is clicked; if the element
     // is customize button then the closing action is handled by
     // onCustomizeBtnClick method
-    if (this.#controlsVisible
+    if (this.controlsVisible
           && event.target.closest('div#controls-container') === null
           && event.target.closest('div#customize-btn') === null) {
       controlsContainerElement.classList.remove('visible');
-      this.#controlsVisible = false;
+      this.controlsVisible = false;
     }
   }
 
   getWindowInnerHeight() {
-    this.#windowHeight = window.innerHeight;
+    this.windowHeight = window.innerHeight;
   }
 
 }
