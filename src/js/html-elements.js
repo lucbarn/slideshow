@@ -1,8 +1,16 @@
+const imgsButtonElement = document.getElementById('imgs-button');
+
 const frontElement = document.getElementById('front');
 const card1Element = document.getElementById('card1');
 const card2Element = document.getElementById('card2');
 const card3Element = document.getElementById('card3');
 const backElement = document.getElementById('back');
+
+const frontImgElement = document.getElementById('front-img');
+const card1ImgElement = document.getElementById('card1-img');
+const card2ImgElement = document.getElementById('card2-img');
+const card3ImgElement = document.getElementById('card3-img');
+const backImgElement = document.getElementById('back-img');
 
 const modalElement = document.getElementById('modal');
 const modalImgElement = document.getElementById('modal-img');
@@ -29,11 +37,17 @@ const rightArrowElement = document.getElementById('right-arrow');
 const customizeButtonElement = document.getElementById('customize-btn');
 
 export {
+  imgsButtonElement,
   frontElement,
   card1Element,
   card2Element,
   card3Element,
   backElement,
+  frontImgElement,
+  card1ImgElement,
+  card2ImgElement,
+  card3ImgElement,
+  backImgElement,
   modalElement,
   modalImgElement,
   modalHideButtonElement,

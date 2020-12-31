@@ -44,6 +44,7 @@ class PointOfViewController {
     this.cornerY;
 
     this.controlsVisible = false;
+    this.showOnlyCardsBorders = false;
     this.windowHeight = window.innerHeight;
 
     this.boundMovePov = this.movePov.bind(this);
@@ -139,6 +140,19 @@ class PointOfViewController {
     card1PositionElement.style.width = cards[1].style.width;
     card1PositionElement.style.height = cards[1].style.height;
     card1PositionElement.style.transform = cards[1].style.transform;
+  }
+
+  onCardsBordersButtonClick() {
+    const cardsElements = this.cardsService.getCardsElements();
+    const imgsElements = this.cardsService.getCardsImgsElements();
+    this.showOnlyCardsBorders = !this.showOnlyCardsBorders;
+    if (this.showOnlyCardsBorders) {
+      cardsElements.forEach(cardElement => cardElement.classList.add('hidden-img'));
+      imgsElements.forEach(imgElement => imgElement.classList.add('hidden-img'));
+    } else {
+      cardsElements.forEach(cardElement => cardElement.classList.remove('hidden-img'));
+      imgsElements.forEach(imgElement => imgElement.classList.remove('hidden-img'));
+    }
   }
 
   onCardProfileMouseDownFactory(k) {

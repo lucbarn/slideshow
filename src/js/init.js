@@ -2,6 +2,7 @@ import { CardsService } from './cards-service';
 import { Cards } from './cards';
 import { PointOfViewController } from './point-of-view-controller';
 import {
+  imgsButtonElement,
   leftArrowElement,
   rightArrowElement,
   card1PositionElement,
@@ -25,8 +26,8 @@ function init() {
   // create initial animations
   cardsService.updateAnimations();
 
-  // set cards sources
-  cards.setCardsSources();
+  // set images sources
+  cards.setImgsSources();
 
   // show cards after their dimensions have been set
   cards.showCards();
@@ -51,6 +52,8 @@ function init() {
 
   document.addEventListener('mouseup', event => pointOfViewController.onMouseUp(event));
   window.addEventListener('resize', () => pointOfViewController.getWindowInnerHeight());
+
+  imgsButtonElement.addEventListener('click', () => pointOfViewController.onCardsBordersButtonClick());
 }
 
 export { init };

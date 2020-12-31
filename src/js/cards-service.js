@@ -4,6 +4,11 @@ import {
   card2Element,
   card3Element,
   backElement,
+  frontImgElement,
+  card1ImgElement,
+  card2ImgElement,
+  card3ImgElement,
+  backImgElement,
   frontProfileElement,
   card1ProfileElement,
   card2ProfileElement,
@@ -15,6 +20,7 @@ class CardsService {
 
   constructor() {
     this.cardsElements = [frontElement, card1Element, card2Element, card3Element, backElement];
+    this.cardsImgsElements = [frontImgElement, card1ImgElement, card2ImgElement, card3ImgElement, backImgElement];
     this.cardsProfiles = [frontProfileElement, card1ProfileElement, card2ProfileElement, card3ProfileElement, backProfileElement];
 
     this.forwardTransitionFront;
@@ -57,6 +63,10 @@ class CardsService {
 
   getCardsElements() {
     return this.cardsElements;
+  }
+
+  getCardsImgsElements() {
+    return this.cardsImgsElements;
   }
 
   getCardsProfiles() {

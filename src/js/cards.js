@@ -5,6 +5,11 @@ import {
   card2Element,
   card3Element,
   backElement,
+  frontImgElement,
+  card1ImgElement,
+  card2ImgElement,
+  card3ImgElement,
+  backImgElement,
   modalElement,
   modalImgElement,
   card1PositionElement
@@ -36,9 +41,9 @@ class Cards {
     return window.outerWidth > minWidth;
   }
 
-  setCardsSources() {
-    const cardsElements = this.cardsService.getCardsElements();
-    cardsElements.forEach((card, i) => card.src = srcs[i]);
+  setImgsSources() {
+    const imgsElements = this.cardsService.getCardsImgsElements();
+    imgsElements.forEach((img, i) => img.src = srcs[i]);
   }
 
   showCards() {
@@ -80,11 +85,11 @@ class Cards {
     this.headPosition = (this.srcsLength + this.headPosition - 1) % this.srcsLength;
 
     setTimeout(() => {
-      frontElement.src = srcs[this.headPosition];
-      card1Element.src = srcs[(this.headPosition + 1) % this.srcsLength];
-      card2Element.src = srcs[(this.headPosition + 2) % this.srcsLength];
-      card3Element.src = srcs[(this.headPosition + 3) % this.srcsLength];
-      backElement.src = srcs[(this.headPosition + 4) % this.srcsLength];
+      frontImgElement.src = srcs[this.headPosition];
+      card1ImgElement.src = srcs[(this.headPosition + 1) % this.srcsLength];
+      card2ImgElement.src = srcs[(this.headPosition + 2) % this.srcsLength];
+      card3ImgElement.src = srcs[(this.headPosition + 3) % this.srcsLength];
+      backImgElement.src = srcs[(this.headPosition + 4) % this.srcsLength];
 
       forwardFrontAnimation.cancel();
       forwardCard1Animation.cancel();
@@ -117,11 +122,11 @@ class Cards {
     this.headPosition = (this.headPosition + 1) % this.srcsLength;
 
     setTimeout(() => {
-      frontElement.src = srcs[this.headPosition];
-      card1Element.src = srcs[(this.headPosition + 1) % this.srcsLength];
-      card2Element.src = srcs[(this.headPosition + 2) % this.srcsLength];
-      card3Element.src = srcs[(this.headPosition + 3) % this.srcsLength];
-      backElement.src = srcs[(this.headPosition + 4) % this.srcsLength];
+      frontImgElement.src = srcs[this.headPosition];
+      card1ImgElement.src = srcs[(this.headPosition + 1) % this.srcsLength];
+      card2ImgElement.src = srcs[(this.headPosition + 2) % this.srcsLength];
+      card3ImgElement.src = srcs[(this.headPosition + 3) % this.srcsLength];
+      backImgElement.src = srcs[(this.headPosition + 4) % this.srcsLength];
 
       backwardBackAnimation.cancel();
       backwardCard3Animation.cancel();
