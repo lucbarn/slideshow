@@ -482,6 +482,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -496,6 +497,26 @@
 
 #pov:active {
   cursor: grabbing;
+}
+
+#cone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 35.355 is apprimately equal to 50 * sqrt(2) / 2 */
+  transform: translate3d(calc(-50% - 35.355px + 4px), -50%, -5px) rotate(-45deg);
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+#cone-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(rgb(133, 162, 215) 0%, transparent 50%, transparent 100%);
 }
 
 #cards-profiles-container {
