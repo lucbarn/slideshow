@@ -2,7 +2,6 @@ import { CardsService } from './cards-service';
 import { Cards } from './cards';
 import { PointOfViewController } from './point-of-view-controller';
 import {
-  imgsButtonElement,
   leftArrowElement,
   rightArrowElement,
   card1PositionElement,
@@ -12,7 +11,9 @@ import {
   card1ProfileElement,
   card2ProfileElement,
   card3ProfileElement,
-  backProfileElement
+  backProfileElement,
+  picturesToggleButtonElement,
+  bordersToggleButtonElement
 } from './html-elements';
 
 function init() {
@@ -50,10 +51,11 @@ function init() {
   card3ProfileElement.addEventListener('mousedown', pointOfViewController.onCardProfileMouseDownFactory(3));
   backProfileElement.addEventListener('mousedown', pointOfViewController.onCardProfileMouseDownFactory(4));
 
+  picturesToggleButtonElement.addEventListener('click', () => pointOfViewController.onToggleButtonClick(false));
+  bordersToggleButtonElement.addEventListener('click', () => pointOfViewController.onToggleButtonClick(true));
+
   document.addEventListener('mouseup', event => pointOfViewController.onMouseUp(event));
   window.addEventListener('resize', () => pointOfViewController.getWindowInnerHeight());
-
-  imgsButtonElement.addEventListener('click', () => pointOfViewController.onCardsBordersButtonClick());
 }
 
 export { init };

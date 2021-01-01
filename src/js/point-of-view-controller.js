@@ -5,7 +5,9 @@ import {
   cardsContainerElement,
   cardsProfilesContainerElement,
   controlsContainerElement,
-  card1PositionElement
+  card1PositionElement,
+  picturesToggleButtonElement,
+  bordersToggleButtonElement
 } from './html-elements';
 
 class PointOfViewController {
@@ -142,16 +144,23 @@ class PointOfViewController {
     card1PositionElement.style.transform = cards[1].style.transform;
   }
 
-  onCardsBordersButtonClick() {
+  onToggleButtonClick(showOnlyCardsBorders) {
+    if (showOnlyCardsBorders === this.showOnlyCardsBorders) {
+      return;
+    }
     const cardsElements = this.cardsService.getCardsElements();
     const imgsElements = this.cardsService.getCardsImgsElements();
-    this.showOnlyCardsBorders = !this.showOnlyCardsBorders;
+    this.showOnlyCardsBorders = showOnlyCardsBorders;
     if (this.showOnlyCardsBorders) {
       cardsElements.forEach(cardElement => cardElement.classList.add('hidden-img'));
       imgsElements.forEach(imgElement => imgElement.classList.add('hidden-img'));
+      picturesToggleButtonElement.classList.remove('selected');
+      bordersToggleButtonElement.classList.add('selected');
     } else {
       cardsElements.forEach(cardElement => cardElement.classList.remove('hidden-img'));
       imgsElements.forEach(imgElement => imgElement.classList.remove('hidden-img'));
+      bordersToggleButtonElement.classList.remove('selected');
+      picturesToggleButtonElement.classList.add('selected');
     }
   }
 

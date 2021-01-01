@@ -1,5 +1,3 @@
-const imgsButtonElement = document.getElementById('imgs-button');
-
 const frontElement = document.getElementById('front');
 const card1Element = document.getElementById('card1');
 const card2Element = document.getElementById('card2');
@@ -35,9 +33,10 @@ const leftArrowElement = document.getElementById('left-arrow');
 const rightArrowElement = document.getElementById('right-arrow');
 
 const customizeButtonElement = document.getElementById('customize-btn');
+const picturesToggleButtonElement = document.getElementById('pictures-toggle-button');
+const bordersToggleButtonElement = document.getElementById('borders-toggle-button');
 
 export {
-  imgsButtonElement,
   frontElement,
   card1Element,
   card2Element,
@@ -66,5 +65,7 @@ export {
   backProfileElement,
   leftArrowElement,
   rightArrowElement,
-  customizeButtonElement
+  customizeButtonElement,
+  picturesToggleButtonElement,
+  bordersToggleButtonElement
 };
