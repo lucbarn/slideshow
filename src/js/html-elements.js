@@ -15,6 +15,7 @@ const modalImgElement = document.getElementById('modal-img');
 const modalHideButtonElement = document.getElementById('modal-hide-button');
 
 const controlsContainerElement = document.getElementById('controls-container');
+const povWrapperElement = document.getElementById('pov-wrapper');
 const povElement = document.getElementById('pov');
 const povAreaElement = document.getElementById('pov-area');
 const povContainerElement = document.getElementById('pov-container');
@@ -51,6 +52,7 @@ export {
   modalImgElement,
   modalHideButtonElement,
   controlsContainerElement,
+  povWrapperElement,
   povElement,
   povAreaElement,
   povContainerElement,

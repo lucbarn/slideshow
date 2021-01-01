@@ -1,4 +1,5 @@
 import {
+  povWrapperElement,
   povElement,
   povContainerElement,
   povAreaElement,
@@ -231,8 +232,8 @@ class PointOfViewController {
       yPos = Math.max(y - this.cornerY, 0);
     }
 
-    povElement.style.left = `${xPos}px`;
-    povElement.style.top = `${yPos}px`;
+    povWrapperElement.style.left = `${xPos}px`;
+    povWrapperElement.style.top = `${yPos}px`;
     this.povX = (xPos + this.povContainerCardsDistance) * this.controlsContainerScale;
     this.povY = ((yLimit - yPos) - (yLimit - this.cardsHeight / this.controlsContainerScale) / 2) * this.controlsContainerScale;
     this.updateCards();
