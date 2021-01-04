@@ -1,3 +1,4 @@
+import '../style/style.scss';
 import { CardsService } from './cards-service';
 import { Cards } from './cards';
 import { PointOfViewController } from './point-of-view-controller';
