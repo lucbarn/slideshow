@@ -1,23 +1,7 @@
 :host {
-  --front-width: 0px;
-  --front-height: 0px;
-  
-  --card1-width: 0px;
-  --card1-height: 0px;
-  --card1-translate-y: 0px;
-  
-  --card2-width: 0px;
-  --card2-height: 0px;
-  --card2-translate-y: 0px;
-  
-  --card3-width: 0px;
-  --card3-height: 0px;
-  --card3-translate-y: 0px;
-  
-  --back-width: 0px;
-  --back-height: 0px;
-  --back-translate-y: 0px;
-  
+  --text-color: #434977;
+  --hover-color: #fafafa;
+  --selected-color: rgb(235, 237, 242);
   --pov-container-border-radius: 5px;
 }
 
@@ -26,8 +10,8 @@
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
-  width: var(--front-width);
-  height: var(--front-height);
+  width: 0px;
+  height: 0px;
   max-width: 100%;
 }
 
@@ -95,9 +79,6 @@
   border-bottom: 3px solid #8c8c8c;
   left: -175px;
   top: 50%;
-  /* 72.41 is approximately equal to (397.241 / 2) + 113.793 - (480 / 2),
-  which corresponds to the distance between the horizontal midpoint of
-  the front tile and the horizontal midpoint of tile1 */
   transform: translateY(-50%) rotate(45deg);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -267,13 +248,13 @@
   align-items: center;
   padding: 5px 15px;
   border-radius: 500px;
-  color: #434977;
+  color: var(--text-color);
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: -1px 1px 5px rgba(0,0,0,0.25);
 }
 
 #customize-btn:hover {
-  background-color: #fafafa;
+  background-color: var(--hover-color);
   cursor: pointer;
 }
 
@@ -290,7 +271,7 @@
   position: relative;
   width: 100%;
   height: 1.5px;
-  background-color: #434977;
+  background-color: var(--text-color);
 }
 
 .customize-icon-circle {
@@ -300,7 +281,7 @@
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
-  background-color: #434977;
+  background-color: var(--text-color);
 }
 
 .first-icon-circle {
@@ -365,16 +346,16 @@
 #pictures-toggle-button:hover,
 #borders-toggle-button:hover {
   cursor: pointer;
-  background-color: #fafafa;
+  background-color: var(--hover-color);
 }
 
 #pictures-toggle-button.selected,
 #borders-toggle-button.selected {
-  background-color: rgb(235, 237, 242);
+  background-color: var(--selected-color);
 }
 
 .toggle-button-text {
-  color: #434977;
+  color: var(--text-color);
   font-family: Arial, Helvetica, sans-serif;
   margin: auto;
 }
@@ -434,7 +415,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  /* 35.355 is apprimately equal to 50 * sqrt(2) / 2 */
+  /* 35.355 is approximately equal to 50 * sqrt(2) / 2 */
   transform: translate(calc(-50% - 35.355px + 4px), -50%) rotate(-45deg);
   width: 50px;
   height: 50px;
