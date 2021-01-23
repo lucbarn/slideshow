@@ -30,8 +30,8 @@ const card2ProfileElement = document.getElementById('card2-profile');
 const card3ProfileElement = document.getElementById('card3-profile');
 const backProfileElement = document.getElementById('back-profile');
 
-const leftArrowElement = document.getElementById('left-arrow');
-const rightArrowElement = document.getElementById('right-arrow');
+const leftArrowContainerElement = document.getElementById('left-arrow-container');
+const rightArrowContainerElement = document.getElementById('right-arrow-container');
 
 const customizeButtonElement = document.getElementById('customize-btn');
 const picturesToggleButtonElement = document.getElementById('pictures-toggle-button');
@@ -65,8 +65,8 @@ export {
   card2ProfileElement,
   card3ProfileElement,
   backProfileElement,
-  leftArrowElement,
-  rightArrowElement,
+  leftArrowContainerElement,
+  rightArrowContainerElement,
   customizeButtonElement,
   picturesToggleButtonElement,
   bordersToggleButtonElement

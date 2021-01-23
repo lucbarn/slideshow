@@ -3,8 +3,8 @@ import { CardsService } from './cards-service';
 import { Cards } from './cards';
 import { PointOfViewController } from './point-of-view-controller';
 import {
-  leftArrowElement,
-  rightArrowElement,
+  leftArrowContainerElement,
+  rightArrowContainerElement,
   card1PositionElement,
   modalHideButtonElement,
   customizeButtonElement,
@@ -38,8 +38,8 @@ function init() {
   pointOfViewController.initPovController();
 
   // add event listeners
-  leftArrowElement.addEventListener('click', () => cards.previous());
-  rightArrowElement.addEventListener('click', () => cards.next());
+  leftArrowContainerElement.addEventListener('click', () => cards.previous());
+  rightArrowContainerElement.addEventListener('click', () => cards.next());
 
   card1PositionElement.addEventListener('click', () => cards.showModal());
   modalHideButtonElement.addEventListener('click', () => cards.hideModal());

@@ -1,7 +1,12 @@
 $text-color: #434977;
+$arrow-fill-color: #8c8c8c;
 $hover-color: #fafafa;
 $selected-color: rgb(235, 237, 242);
 $pov-container-border-radius: 5px;
+$arrow-border-thickness: 3px;
+$arrow-container-side-length: 45px;
+$arrow-side-length-scale-factor: 0.4;
+$arrow-side-length: $arrow-side-length-scale-factor * $arrow-container-side-length;
 
 #cards-container {
   position: absolute;
@@ -73,42 +78,55 @@ $pov-container-border-radius: 5px;
   opacity: 0;
 }
 
-#left-arrow {
+.arrow-container {
   position: absolute;
-  height: 30px;
-  width: 30px;
-  border-left: 3px solid #8c8c8c;
-  border-bottom: 3px solid #8c8c8c;
-  left: -175px;
   top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-  -webkit-user-select: none;
-  -moz-user-select: none;
+  transform: translateY(-50%);
+  height: $arrow-container-side-length;
+  width: $arrow-container-side-length;
+  border-radius: 50%;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $arrow-side-length;
+    height: $arrow-side-length;
+    border-left: $arrow-border-thickness solid $arrow-fill-color;
+    border-bottom: $arrow-border-thickness solid $arrow-fill-color;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    box-sizing: border-box;
+  }
+
+  &#left-arrow-container {
+    left: -175px;
+
+    #left-arrow {
+      // 1.4142 is approximately equal to sqrt(2)
+      transform: translate(calc(-50% + (#{$arrow-side-length} * 1.4142 / 4)), -50%) rotate(45deg);
+    }
+  }
+
+  &#right-arrow-container {
+    right: -175px;
+
+    #right-arrow {
+      transform: translate(calc(-50% - (#{$arrow-side-length} * 1.4142 / 4)), -50%) rotate(225deg);
+    }
+  }
 }
 
-#right-arrow {
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  border-left: 3px solid #8c8c8c;
-  border-bottom: 3px solid #8c8c8c;
-  right: -175px;
-  top: 50%;
-  transform: translateY(-50%) rotate(225deg);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-}
-
-#left-arrow:hover, #right-arrow:hover {
-  cursor: pointer;
-}
-
-@media screen and (max-width: 1100px) {
-  #left-arrow {
+@media screen and (max-width: 1400px) {
+  #left-arrow-container {
     left: -60px;
   }
 
-  #right-arrow {
+  #right-arrow-container {
     right: -60px;
   }
 }
@@ -132,14 +150,14 @@ $pov-container-border-radius: 5px;
     transform: translate3d(-50%,-50%,0px);
   }
 
-  #left-arrow {
+  #left-arrow-container {
     top: 110%;
     left: 50%;
     transform: translateX(-250%) rotate(45deg);
     z-index: 7;
   }
 
-  #right-arrow {
+  #right-arrow-container {
     top: 110%;
     right: 50%;
     transform: translateX(250%) rotate(225deg);
