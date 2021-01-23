@@ -41,10 +41,14 @@ $pov-container-border-radius: 5px;
 
 #card1-position {
   z-index: 7;
-}
 
-#card1-position:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+
+    &.disabled {
+      cursor: unset;
+    }
+  }
 }
 
 #front {

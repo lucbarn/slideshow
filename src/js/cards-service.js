@@ -32,6 +32,12 @@ class CardsService {
     this.backwardTransitionCard2;
     this.backwardTransitionCard3;
     this.backwardTransitionBack;
+
+    this.isBordersMode = false;
+  }
+
+  updateBordersMode(isBordersMode) {
+    this.isBordersMode = isBordersMode;
   }
 
   createAnimation(element, opacity) {

@@ -1,6 +1,5 @@
 import {
   povWrapperElement,
-  povElement,
   povContainerElement,
   povAreaElement,
   cardsContainerElement,
@@ -47,7 +46,6 @@ class PointOfViewController {
     this.cornerY;
 
     this.controlsVisible = false;
-    this.showOnlyCardsBorders = false;
     this.windowHeight = window.innerHeight;
 
     this.boundMovePov = this.movePov.bind(this);
@@ -145,23 +143,25 @@ class PointOfViewController {
     card1PositionElement.style.transform = cards[1].style.transform;
   }
 
-  onToggleButtonClick(showOnlyCardsBorders) {
-    if (showOnlyCardsBorders === this.showOnlyCardsBorders) {
+  onToggleButtonClick(isBordersMode) {
+    if (isBordersMode === this.cardsService.isBordersMode) {
       return;
     }
+    this.cardsService.updateBordersMode(isBordersMode);
     const cardsElements = this.cardsService.getCardsElements();
     const imgsElements = this.cardsService.getCardsImgsElements();
-    this.showOnlyCardsBorders = showOnlyCardsBorders;
-    if (this.showOnlyCardsBorders) {
+    if (isBordersMode) {
       cardsElements.forEach(cardElement => cardElement.classList.add('hidden-img'));
       imgsElements.forEach(imgElement => imgElement.classList.add('hidden-img'));
       picturesToggleButtonElement.classList.remove('selected');
       bordersToggleButtonElement.classList.add('selected');
+      card1PositionElement.classList.add('disabled');
     } else {
       cardsElements.forEach(cardElement => cardElement.classList.remove('hidden-img'));
       imgsElements.forEach(imgElement => imgElement.classList.remove('hidden-img'));
       bordersToggleButtonElement.classList.remove('selected');
       picturesToggleButtonElement.classList.add('selected');
+      card1PositionElement.classList.remove('disabled');
     }
   }
 

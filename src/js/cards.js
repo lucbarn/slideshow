@@ -53,6 +53,9 @@ class Cards {
   }
 
   showModal() {
+    if (this.cardsService.isBordersMode) {
+      return;
+    }
     document.body.style.overflowY = 'hidden';
     modalElement.style.display = 'block';
     modalImgElement.src = srcs[(this.headPosition + 1) % this.srcsLength];
