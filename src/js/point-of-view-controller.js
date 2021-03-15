@@ -143,7 +143,7 @@ class PointOfViewController {
     card1PositionElement.style.transform = cards[1].style.transform;
   }
 
-  onToggleButtonClick(isBordersMode) {
+  setBordersMode(isBordersMode) {
     if (isBordersMode === this.cardsService.isBordersMode) {
       return;
     }
@@ -239,13 +239,21 @@ class PointOfViewController {
     this.updateCards();
   }
 
+  openControlsPanel() {
+    controlsContainerElement.classList.add('visible');
+    this.controlsVisible = true;
+  }
+
+  closeControlsPanel() {
+    controlsContainerElement.classList.remove('visible');
+    this.controlsVisible = false;
+  }
+
   onCustomizeBtnClick() {
     if (!this.controlsVisible) {
-      controlsContainerElement.classList.add('visible');
-      this.controlsVisible = true;
+      this.openControlsPanel();
     } else {
-      controlsContainerElement.classList.remove('visible');
-      this.controlsVisible = false;
+      this.closeControlsPanel();
     }
   }
 
@@ -273,15 +281,14 @@ class PointOfViewController {
     if (this.controlsVisible
           && event.target.closest('div#controls-container') === null
           && event.target.closest('div#customize-btn') === null) {
-      controlsContainerElement.classList.remove('visible');
-      this.controlsVisible = false;
+      this.closeControlsPanel();
     }
 
     this.onCardProfileMouseUp();
     this.onPovMouseUp();
   }
 
-  getWindowInnerHeight() {
+  updateWindowInnerHeight() {
     this.windowHeight = window.innerHeight;
   }
 

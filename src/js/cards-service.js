@@ -48,7 +48,7 @@ class CardsService {
       transform: element.style.transform
     };
   
-    if (opacity !== undefined) {
+    if (opacity != null) {
       to.opacity = opacity;
     }
   

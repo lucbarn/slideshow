@@ -1,4 +1,5 @@
 import { srcs } from './images-sources';
+import { smallSizeWidth } from './resize';
 import {
   frontElement,
   card1Element,
@@ -37,8 +38,8 @@ class Cards {
    * Returns whether the window's width is sufficient in order to display the animation.
    */
   get isMinWidthWindow() {
-    const minWidth = 800;
-    return window.outerWidth > minWidth;
+    const minWidth = smallSizeWidth;
+    return window.innerWidth > minWidth;
   }
 
   setImgsSources() {
@@ -71,6 +72,8 @@ class Cards {
       return;
     }
 
+    let animationsAvailable = false;
+
     let forwardFrontAnimation;
     let forwardCard1Animation;
     let forwardCard2Animation;
@@ -79,6 +82,7 @@ class Cards {
     this.isAnimationInProgress = true;
 
     if (this.isMinWidthWindow) {
+      animationsAvailable = true;
       forwardFrontAnimation = frontElement.animate(this.cardsService.forwardTransitionFront, this.animationOptions);
       forwardCard1Animation = card1Element.animate(this.cardsService.forwardTransitionCard1, this.animationOptions);
       forwardCard2Animation = card2Element.animate(this.cardsService.forwardTransitionCard2, this.animationOptions);
@@ -94,10 +98,12 @@ class Cards {
       card3ImgElement.src = srcs[(this.headPosition + 3) % this.srcsLength];
       backImgElement.src = srcs[(this.headPosition + 4) % this.srcsLength];
 
-      forwardFrontAnimation.cancel();
-      forwardCard1Animation.cancel();
-      forwardCard2Animation.cancel();
-      forwardCard3Animation.cancel();
+      if (animationsAvailable) {
+        forwardFrontAnimation.cancel();
+        forwardCard1Animation.cancel();
+        forwardCard2Animation.cancel();
+        forwardCard3Animation.cancel();
+      }
 
       this.isAnimationInProgress = false;
     }, this.isMinWidthWindow ? this.animationOptions.duration : this.basicAnimationDuration);
@@ -108,6 +114,8 @@ class Cards {
       return;
     }
 
+    let animationsAvailable = false;
+
     let backwardBackAnimation;
     let backwardCard3Animation;
     let backwardCard2Animation;
@@ -116,6 +124,7 @@ class Cards {
     this.isAnimationInProgress = true;
 
     if (this.isMinWidthWindow) {
+      animationsAvailable = true;
       backwardBackAnimation = backElement.animate(this.cardsService.backwardTransitionBack, this.animationOptions);
       backwardCard3Animation = card3Element.animate(this.cardsService.backwardTransitionCard3, this.animationOptions);
       backwardCard2Animation = card2Element.animate(this.cardsService.backwardTransitionCard2, this.animationOptions);
@@ -131,10 +140,12 @@ class Cards {
       card3ImgElement.src = srcs[(this.headPosition + 3) % this.srcsLength];
       backImgElement.src = srcs[(this.headPosition + 4) % this.srcsLength];
 
-      backwardBackAnimation.cancel();
-      backwardCard3Animation.cancel();
-      backwardCard2Animation.cancel();
-      backwardCard1Animation.cancel();
+      if (animationsAvailable) {
+        backwardBackAnimation.cancel();
+        backwardCard3Animation.cancel();
+        backwardCard2Animation.cancel();
+        backwardCard1Animation.cancel();
+      }
 
       this.isAnimationInProgress = false;
     }, this.isMinWidthWindow ? this.animationOptions.duration : this.basicAnimationDuration);

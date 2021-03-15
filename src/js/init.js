@@ -1,7 +1,6 @@
 import '../style/style.scss';
-import { CardsService } from './cards-service';
-import { Cards } from './cards';
-import { PointOfViewController } from './point-of-view-controller';
+import { cardsService, cards, pointOfViewController } from './singletons';
+import { onResize } from './resize';
 import {
   leftArrowContainerElement,
   rightArrowContainerElement,
@@ -18,10 +17,6 @@ import {
 } from './html-elements';
 
 function init() {
-  const cardsService = new CardsService();
-  const cards = new Cards(cardsService);
-  const pointOfViewController = new PointOfViewController(cardsService);
-
   // set cards dimensions
   pointOfViewController.updateCards();
 
@@ -36,6 +31,9 @@ function init() {
 
   // init pov controller container and cards profiles
   pointOfViewController.initPovController();
+
+  // set initial style settings based on window's width
+  onResize(pointOfViewController);
 
   // add event listeners
   leftArrowContainerElement.addEventListener('click', () => cards.previous());
@@ -52,11 +50,11 @@ function init() {
   card3ProfileElement.addEventListener('mousedown', pointOfViewController.onCardProfileMouseDownFactory(3));
   backProfileElement.addEventListener('mousedown', pointOfViewController.onCardProfileMouseDownFactory(4));
 
-  picturesToggleButtonElement.addEventListener('click', () => pointOfViewController.onToggleButtonClick(false));
-  bordersToggleButtonElement.addEventListener('click', () => pointOfViewController.onToggleButtonClick(true));
+  picturesToggleButtonElement.addEventListener('click', () => pointOfViewController.setBordersMode(false));
+  bordersToggleButtonElement.addEventListener('click', () => pointOfViewController.setBordersMode(true));
 
   document.addEventListener('mouseup', event => pointOfViewController.onMouseUp(event));
-  window.addEventListener('resize', () => pointOfViewController.getWindowInnerHeight());
+  window.addEventListener('resize', () => onResize(pointOfViewController));
 }
 
 export { init };
