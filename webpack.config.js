@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './src/js/main.js',
+  entry: './src/ts/main.ts',
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
@@ -29,6 +29,11 @@ module.exports = {
         }
       },
       {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
         MiniCssExtractPlugin.loader,
@@ -39,5 +44,8 @@ module.exports = {
       ]
       }
     ]
-  }
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
 };
