@@ -12,14 +12,6 @@ It opens a panel with a lateral view of the cards profiles (the five blue lines 
 Both the cards profiles and the point of view can be dragged to change the perspective. It can also be selected a mode with only the cards borders visible
 in order to better see the position of each card.
 
-## Dependencies
-
-Run the following command from the `slideshow` folder to install the dependencies:
-
-```bash
-npm install
-```
-
 ## Live version
 
 The editor can be tried at https://lucbarn.github.io/slideshow/
