@@ -42,7 +42,7 @@ class Cards {
   }
 
   /**
-   * Returns whether the window's width is sufficient in order to display the animation.
+   * Returns whether the window's width is large enough to display the animation.
    */
   get isMinWidthWindow() {
     const minWidth = smallSizeWidth;

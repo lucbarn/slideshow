@@ -1,89 +1,81 @@
-body.medium-size {
-
-  .arrow-container {
-    &#left-arrow-container {
-      left: -60px;
-    }
-  
-    &#right-arrow-container {
-      right: -60px;
-    }
-  }
-
+// medium size
+body.medium-size #left-arrow-container {
+  left: -60px;
 }
 
-body.medium-size.small-size {
+body.medium-size #right-arrow-container {
+  right: -60px;
+}
 
-  #cards-container {
-    width: 85vw !important;
-    height: 63.05vw !important;
+
+// small size
+body.small-size #cards-container {
+  width: 85vw !important;
+  height: 63.05vw !important;
+}
+
+body.small-size #front,
+body.small-size #card2,
+body.small-size #card3,
+body.small-size #back {
+  display: none;
+}
+
+body.small-size #card1-position,
+body.small-size #card1 {
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  transform: unset !important;
+}
+
+body.small-size #left-arrow-container {
+  top: 110%;
+  left: 25%;
+  transform: unset;
+  z-index: 7;
+}
+
+body.small-size #right-arrow-container {
+  top: 110%;
+  right: 25%;
+  transform: unset;
+  z-index: 7;
+}
+
+@media screen and (max-width: 600px) {
+  body.small-size #left-arrow-container {
+    left: 10%;
   }
 
-  #front,
-  #card2,
-  #card3,
-  #back {
-    display: none;
+  body.small-size #right-arrow-container {
+    right: 10%;
+  }
+}
+
+body.small-size #customize-btn {
+  display: none;
+}
+
+@media screen and (orientation: portrait) {
+  body.small-size #modal-img {
+    width: 100vw;
+    height: 75vw;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  body.small-size #cards-container {
+    width: 93.33vh !important;
+    height: 70vh !important;
+    transform: translateX(-50%) translateY(calc(-50% - 40px)) !important;
   }
 
-  #card1-position, #card1 {
-    width: 100% !important;
-    height: 100% !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    transform: unset !important;
+  body.small-size #modal-img {
+    width: 106.66vh;
+    height: 80vh;
   }
-
-  .arrow-container {
-    &#left-arrow-container {
-      top: 110%;
-      left: 25%;
-      transform: unset;
-      z-index: 7;
-    }
-  
-    &#right-arrow-container {
-      top: 110%;
-      right: 25%;
-      transform: unset;
-      z-index: 7;
-    }
-
-    @media screen and (max-width: 600px) {
-      &#left-arrow-container {
-        left: 10%;
-      }
-    
-      &#right-arrow-container {
-        right: 10%;
-      }
-    }
-  }
-
-  #customize-btn {
-    display: none;
-  }
-
-  @media screen and (orientation: portrait) {
-    #modal-img {
-      width: 100vw;
-      height: 75vw;
-    }
-  }
-  
-  @media screen and (orientation: landscape) {
-    #cards-container {
-      width: 93.33vh !important;
-      height: 70vh !important;
-      transform: translateX(-50%) translateY(calc(-50% - 40px)) !important;
-    }
-  
-    #modal-img {
-      width: 106.66vh;
-      height: 80vh;
-    }
-  }
-
 }
